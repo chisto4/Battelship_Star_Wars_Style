@@ -1,0 +1,19 @@
+{
+  "name": "battelship_star_wars_style",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/chisto4/Battelship_Star_Wars_Style.git"
+  },
+  "author": "Chisto4",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chisto4/Battelship_Star_Wars_Style/issues"
+  },
+  "homepage": "https://github.com/chisto4/Battelship_Star_Wars_Style#readme"
+}

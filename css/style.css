@@ -1,0 +1,272 @@
+* {
+  margin: 0;
+  padding: 0;
+}
+
+a {
+  text-decoration: none;
+}
+
+body {
+  font-size: 20px;
+  font-family: 'Mukta', sans-serif;
+  width: 100%;
+  height: 100vh;
+  color: white;
+}
+
+button {
+  border: #6cfaff;
+  background: rgba(141, 213, 216, 0.473);
+  color: rgba(255, 0, 0, 0.658);
+  font-size: 2rem;
+  width: 250px;
+  padding: 1rem 1.5rem;
+  border-radius: 3rem;
+  margin: 1rem;
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+button:hover {
+  background: rgba(141, 213, 216, 0.952);
+  color: rgba(255, 0, 0, 0.973);
+  -webkit-transition: 0.8s;
+  transition: 0.8s;
+}
+
+button:active {
+  background: rgba(232, 249, 250, 0.952);
+  color: rgba(4, 0, 255, 0.973);
+  -webkit-transition: 0.2s;
+  transition: 0.2s;
+}
+
+main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background: url("/image/background_battleShip.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+header {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding-top: 1rem;
+  font-size: 2rem;
+  font-weight: 300;
+}
+
+.battle_grid_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: horizontal;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: row;
+          flex-direction: row;
+  width: 1400px;
+  height: 900px;
+}
+
+.djedai_buttle_wrapper {
+  width: 50%;
+  height: auto;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.djedai_buttle_wrapper h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #94bfff;
+}
+
+.buttle_grid {
+  width: auto;
+  height: 50px;
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50px)[10];
+      grid-template-columns: repeat(10, 50px);
+  -ms-grid-rows: (50px)[10];
+      grid-template-rows: repeat(10, 50px);
+  padding: 0;
+}
+
+.ship_wrapper {
+  border: 1px solid white;
+  width: 50px;
+  height: 50px;
+}
+
+.ship_wrapper:hover {
+  border: 1px solid red;
+  -webkit-box-shadow: 2px 2px 6px red inset;
+          box-shadow: 2px 2px 6px red inset;
+}
+
+.r2d2_buttle_grid {
+  display: none;
+}
+
+.choice_ships_wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 50%;
+  height: auto;
+}
+
+.choice_ships_wrapper h2 {
+  font-size: 1.8rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: #6cfaff;
+}
+
+.choice_grid {
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.buttle_img {
+  width: 48px;
+  height: 48px;
+  -o-object-fit: cover;
+     object-fit: cover;
+}
+
+.ship_wrapper_one {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+
+.ship_wrapper_one img:hover {
+  border: 1px solid red;
+}
+
+.one_ship {
+  display: -ms-grid;
+  display: grid;
+  width: 46px;
+  height: 46px;
+}
+
+.ship_wrapper_two {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+
+.two_ship {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50px)[2];
+      grid-template-columns: repeat(2, 50px);
+}
+
+.two_ship:hover {
+  border: 1px solid red;
+}
+
+.ship_wrapper_three {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+
+.three_ship {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50px)[3];
+      grid-template-columns: repeat(3, 50px);
+}
+
+.three_ship:hover {
+  border: 1px solid red;
+}
+
+.ship_wrapper_fore {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  -webkit-box-pack: space-evenly;
+      -ms-flex-pack: space-evenly;
+          justify-content: space-evenly;
+  margin-bottom: 2rem;
+}
+
+.fore_ship {
+  display: -ms-grid;
+  display: grid;
+  -ms-grid-columns: (50px)[4];
+      grid-template-columns: repeat(4, 50px);
+}
+
+.fore_ship:hover {
+  border: 1px solid red;
+}
+/*# sourceMappingURL=style.css.map */

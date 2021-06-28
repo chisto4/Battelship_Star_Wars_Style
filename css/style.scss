@@ -1,0 +1,201 @@
+*{margin: 0;padding: 0;}
+a{text-decoration:none;}
+
+body{font-size: 20px;
+  font-family: 'Mukta', sans-serif;
+  width: 100%;
+  height:100vh;
+  color: white;
+}
+
+button{
+  border:rgb(108, 250, 255);
+  background:rgba(141, 213, 216, 0.473);
+  color: rgba(255, 0, 0, 0.658);
+  font-size:2rem;
+  width: 250px;
+  padding:1rem 1.5rem;
+  border-radius: 3rem;
+  margin: 1rem;
+  transition: 0.8s;
+  &:hover{
+    background:rgba(141, 213, 216, 0.952);
+    color: rgba(255, 0, 0, 0.973);
+    transition: 0.8s;
+    }
+    &:active{
+      background:rgba(232, 249, 250, 0.952);
+      color: rgba(4, 0, 255, 0.973);
+      transition: 0.2s;
+      }
+}
+
+main{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  background: url('/image/background_battleShip.png');
+  background-position: center;
+  background-repeat:no-repeat;
+  background-size: cover;
+  width: 100%;
+  height: 100%;
+}
+
+header {
+display:flex;
+flex-direction: row;
+justify-content: center;
+padding-top: 1rem;
+font-size: 2rem;
+font-weight: 300;
+}
+//RAZMER IGROVOI OBLASTI
+.battle_grid_wrapper{
+  display:flex;
+  flex-direction: row;
+  width: 1400px;
+  height: 900px;
+}
+.djedai_buttle_wrapper{
+  width:50%;
+  height:auto;
+  display:flex;
+align-items: center;
+flex-direction: column;
+
+h2{
+  font-size:1.8rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: rgb(148, 191, 255);
+}
+}
+//RAZMER SETKI 10*10
+.buttle_grid{
+  width:auto;
+  height:50px;
+  display: grid;
+  grid-template-columns: repeat(10, 50px);
+  grid-template-rows: repeat(10, 50px);
+  padding: 0;
+}
+
+//SETKA RAZMETKA
+.ship_wrapper{
+  border: 1px solid white;
+  width:50px;
+  height:50px;
+  &:hover{
+    border: 1px solid red;
+box-shadow: 2px 2px 6px red inset;
+  }
+}
+
+
+//R2D2 SETKA display none
+.r2d2_buttle_grid {
+  display: none;
+}
+
+//RASTANOVKA KORABLEI
+
+.choice_ships_wrapper{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50%;
+  height:auto;
+
+  h2{
+    font-size:1.8rem;
+    font-weight: 400;
+    margin-bottom: 1rem;
+    color: rgb(108, 250, 255);
+  }  
+}
+
+.choice_grid{
+width: 100%;
+display: flex;
+flex-direction: column;
+align-items: center;
+}
+
+.buttle_img{
+  width:48px;
+  height:48px;
+  object-fit: cover;
+}
+
+
+.ship_wrapper_one{
+  display: flex;
+  width:100%;
+  justify-content: space-evenly;
+  margin-bottom:2rem;
+  img{
+    &:hover{
+      border: 1px solid red;
+    }  
+  }
+}
+
+.one_ship{
+  display: grid;
+  width:46px;
+  height:46px;
+}
+
+
+.ship_wrapper_two{
+  display: flex;
+  width:100%;
+  justify-content: space-evenly;
+  margin-bottom:2rem;
+}
+
+
+.two_ship{
+  display: grid;
+  grid-template-columns: repeat(2, 50px);
+
+  &:hover{
+    border: 1px solid red;
+  }
+}
+
+.ship_wrapper_three{
+  display: flex;
+  width:100%;
+  justify-content: space-evenly;
+  margin-bottom:2rem;
+}
+
+
+.three_ship{
+  display: grid;
+  grid-template-columns: repeat(3, 50px);
+
+  &:hover{
+    border: 1px solid red;
+  }
+}
+
+.ship_wrapper_fore{
+  display: flex;
+  width:100%;
+  justify-content: space-evenly;
+  margin-bottom:2rem;
+}
+
+
+.fore_ship{
+  display: grid;
+  grid-template-columns: repeat(4, 50px);
+
+  &:hover{
+    border: 1px solid red;
+  }
+}
+
