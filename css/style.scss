@@ -71,6 +71,22 @@ h2{
   color: rgb(148, 191, 255);
 }
 }
+
+.r2d2_buttle_wrapper{
+  display:none;
+  width:50%;
+  height:auto;
+  align-items: center;
+  flex-direction: column;
+
+h2{
+  font-size:1.8rem;
+  font-weight: 400;
+  margin-bottom: 1rem;
+  color: rgba(250, 33, 33, 0.904);
+}
+}
+
 //RAZMER SETKI 10*10
 .buttle_grid{
   width:auto;
@@ -92,11 +108,25 @@ box-shadow: 2px 2px 6px red inset;
   }
 }
 
+.ship_wrapper_oneShip{
+  display:block;
+  border: 1px solid white;
+  background: url('/icon/djeadi_buttle.png');
+  width:50px;
+  height:50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
 
 //R2D2 SETKA display none
 .r2d2_buttle_grid {
-  display: none;
-}
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  }
 
 //RASTANOVKA KORABLEI
 
@@ -122,11 +152,38 @@ flex-direction: column;
 align-items: center;
 }
 
+.butleImgRed{
+  border: 2px solid red;
+}
+
 .buttle_img{
   width:48px;
   height:48px;
   object-fit: cover;
 }
+
+.buttle_img_two{
+  width:96px;
+  height:48px;
+  object-fit: cover;
+}
+
+.buttle_img_three{
+  width:144px;
+  height:48px;
+  object-fit: cover;
+}
+
+.buttle_img_fore{
+  width:192px;
+  height:48px;
+  object-fit: cover;
+  &:active{
+    transform: rotate (90deg);
+  }
+}
+
+
 
 
 .ship_wrapper_one{
@@ -134,17 +191,16 @@ align-items: center;
   width:100%;
   justify-content: space-evenly;
   margin-bottom:2rem;
-  img{
-    &:hover{
-      border: 1px solid red;
-    }  
-  }
 }
 
 .one_ship{
   display: grid;
-  width:46px;
-  height:46px;
+  &:hover{
+    border: 1px solid red;
+  }  
+}
+#one_ship_1{
+  display: grid;
 }
 
 
@@ -197,5 +253,10 @@ align-items: center;
   &:hover{
     border: 1px solid red;
   }
+}
+
+.button_wrapper{
+  display: flex;
+  flex-direction: column;
 }
 
