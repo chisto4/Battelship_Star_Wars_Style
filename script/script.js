@@ -3,6 +3,8 @@
 const buttonTest = document.getElementById("changeWrapperDark");
 const dark = document.getElementById("r2d2");
 const choice = document.getElementById("shipping");
+const shipWrapperOne = document.getElementsByClassName("ship_wrapper_one");
+
 
 function buttonTestonClick() {
   if (dark.style.display === "flex" && choice.style.display === "none") {
@@ -78,24 +80,50 @@ changeForeShip.addEventListener("click", _ => RedShipBorder(changeForeShip));
 //     clikListen(e, el);
 //   });
 // });
+// const allOneShipArr = document.querySelectorAll('div.one_ship');
+// // const allOneShipArrN = allOneShipArr.forEach();
+// console.log(allOneShipArr);
+// const allShipWrapper = document.querySelectorAll('div.ship_wrapper');
+// const countOneShip = 1;
+// // window.asd = allShipWrapper
 
-const allShipWrapper = document.querySelectorAll('div.ship_wrapper');
-// window.asd = allShipWrapper
+// function newShip({target:gridElement}) {
+//   // console.log('allShipWrapper', allShipWrapper);
+//   if(allOneShipArr[0].style.border === "2px solid red" ||
+//       allOneShipArr[1].style.border === "2px solid red" ||
+//       allOneShipArr[2].style.border === "2px solid red" ||
+//       allOneShipArr[3].style.border === "2px solid red") {
+//   if (gridElement.classList !== "ship_wrapper_oneShip") {
+//     gridElement.classList.add("ship_wrapper_oneShip");
+//     if(allOneShipArr[0].style.border === "2px solid red"){
+//       allOneShipArr[0].style.border = "none";
+//       allOneShipArr[0].remove();  
+//     }else if(allOneShipArr[1].style.border === "2px solid red"){
+//       allOneShipArr[1].style.border = "none";
+//       allOneShipArr[1].remove();  
+//     }else if(allOneShipArr[2].style.border === "2px solid red"){
+//       allOneShipArr[2].style.border = "none";
+//       allOneShipArr[2].remove();  
+//     }else if(allOneShipArr[3].style.border === "2px solid red"){
+//       allOneShipArr[3].style.border = "none";
+//       allOneShipArr[3].remove();  
+//     }
+    
+//   } else {
+//     gridElement.classList.remove("ship_wrapper_oneShip");
+//   }}
+//   console.log('clik', newShip);
+// }
 
-function newShip({target:gridElement}) {
-  console.log(gridElement);
-  if (gridElement.classList !== "ship_wrapper_oneShip") {
-    gridElement.classList.add("ship_wrapper_oneShip");
-  } else {
-    gridElement.classList.remove("ship_wrapper_oneShip");
-  }
-}
 
-allShipWrapper.forEach((el)=> {
-  el.addEventListener('click', newShip)
-})
+// allShipWrapper.forEach((el)=> {
+//   el.addEventListener('click', newShip)
+//   // console.log(el);
+// })
 
-allShipWrapper.addEventListener("click", _ => newShip(allShipWrapper));
+// let Arr1 = [];
+// const ArrDjedai = push.Arr1(allShipWrapper.forEach());
+// allShipWrapper.addEventListener("click", _ => newShip(allShipWrapper));
 
 // function clikListen (event, allShipWrapper) {
 //   console.log('kletka');
@@ -116,3 +144,48 @@ allShipWrapper.addEventListener("click", _ => newShip(allShipWrapper));
 // });
 
 
+const allOneShipArr = document.querySelectorAll('div.one_ship');
+// const allOneShipArrN = allOneShipArr.forEach();
+console.log(allOneShipArr);
+const allShipWrapper = document.querySelectorAll('div.ship_wrapper');
+const newAllShipWrapper = allOneShipArr.filter((item, index) => {
+  return item.style.border === "2px solid red";
+})
+const countOneShip = 1;
+// window.asd = allShipWrapper
+
+function newShip({target:gridElement}) {
+  // console.log('allShipWrapper', allShipWrapper);
+  if(allOneShipArr[0].style.border === "2px solid red" ||
+      allOneShipArr[1].style.border === "2px solid red" ||
+      allOneShipArr[2].style.border === "2px solid red" ||
+      allOneShipArr[3].style.border === "2px solid red") {
+  if (gridElement.classList !== "ship_wrapper_oneShip") {
+    gridElement.classList.add("ship_wrapper_oneShip");
+    if(allOneShipArr[0].style.border === "2px solid red"){
+      allOneShipArr[0].style.border = "none";
+      allOneShipArr[0].remove();  
+    }else if(allOneShipArr[1].style.border === "2px solid red"){
+      allOneShipArr[1].style.border = "none";
+      allOneShipArr[1].remove();  
+    }else if(allOneShipArr[2].style.border === "2px solid red"){
+      allOneShipArr[2].style.border = "none";
+      allOneShipArr[2].remove();  
+    }else if(allOneShipArr[3].style.border === "2px solid red"){
+      allOneShipArr[3].style.border = "none";
+      allOneShipArr[3].remove();  
+    }
+    
+  } else {
+    gridElement.classList.remove("ship_wrapper_oneShip");
+  }}
+  console.log('clik', newShip);
+}
+
+
+allShipWrapper.forEach((el)=> {
+  el.addEventListener('click', newShip)
+  // console.log(el);
+})
+
+let Arr1 = [];

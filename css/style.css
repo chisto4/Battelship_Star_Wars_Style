@@ -37,7 +37,8 @@ button:hover {
 
 button:active {
   background: rgba(232, 249, 250, 0.952);
-  color: rgba(4, 0, 255, 0.973);
+  -webkit-box-shadow: 5px 5px 20px rgba(56, 74, 180, 0.815);
+          box-shadow: 5px 5px 20px rgba(56, 74, 180, 0.815);
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -150,9 +151,25 @@ header {
 }
 
 .ship_wrapper:hover {
-  border: 1px solid red;
-  -webkit-box-shadow: 2px 2px 6px red inset;
-          box-shadow: 2px 2px 6px red inset;
+  border: 2px solid #cc00ff;
+  -webkit-box-shadow: 3px 3px 5px rgba(204, 0, 255, 0.486);
+          box-shadow: 3px 3px 5px rgba(204, 0, 255, 0.486);
+  -webkit-box-shadow: -3px -3px 5px rgba(204, 0, 255, 0.507);
+          box-shadow: -3px -3px 5px rgba(204, 0, 255, 0.507);
+}
+
+.ship_wrapper_r2d2 {
+  border: 1px solid white;
+  width: 50px;
+  height: 50px;
+}
+
+.ship_wrapper_r2d2:hover {
+  border: 2px solid red;
+  -webkit-box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.623);
+          box-shadow: 3px 3px 5px rgba(255, 0, 0, 0.623);
+  -webkit-box-shadow: -3px -3px 5px rgba(255, 0, 0, 0.575);
+          box-shadow: -3px -3px 5px rgba(255, 0, 0, 0.575);
 }
 
 .ship_wrapper_oneShip {
