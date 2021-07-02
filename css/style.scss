@@ -130,7 +130,84 @@ h2{
   background-position: center;
   background-repeat: no-repeat;
   background-size: contain;
+  position: relative;
 }
+
+.dj_One_shot{
+  display:block;
+  border: 1px solid white;
+  width:50px;
+  height:50px;
+  opacity: 0.8;
+  &::after{
+    background: url('/icon/light\ swords_djedai.png');
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 0.8s;
+  }
+}
+
+.r2_One_shot{
+  display:block;
+  border: 1px solid white;
+  width:50px;
+  height:50px;
+  opacity: 0.8;
+  &::after{
+    background: url('/icon/ight\ swords_sith.png');
+    content: "";
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: contain;
+    transition: 0.8s;
+  }
+}
+
+.ship_wrapper_oneShip_r2d2{
+  display:block;
+  border: 1px solid white;
+  background: url('/icon/sith_buttle.png');
+  width:50px;
+  height:50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
+
+
+.zero{
+  display:block;
+  border: 1px solid white;
+  background: url('/icon/death_point.png');
+  width:50px;
+  height:50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.notWar{
+  display:block;
+  border: 1px solid white;
+  background: url('/icon/noun.png');
+  width:50px;
+  height:50px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  opacity: 0.7;
+}
+
+
 
 
 //R2D2 SETKA display none
