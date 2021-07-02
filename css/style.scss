@@ -57,6 +57,16 @@ font-weight: 300;
   width: 1400px;
   height: 900px;
 }
+.yoda{
+  display:block;
+  background: url('/icon/avatar_yoda.png');
+  width:100px;
+  height:100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
+}
 .djedai_buttle_wrapper{
   width:50%;
   height:auto;
@@ -67,9 +77,19 @@ flex-direction: column;
 h2{
   font-size:1.8rem;
   font-weight: 400;
-  margin-bottom: 1rem;
-  color: rgb(148, 191, 255);
+  color: #29b67f;
 }
+}
+
+.sith{
+  display:block;
+  background: url('/icon/avatar_sith.png');
+  width:100px;
+  height:100px;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+  position: relative;
 }
 
 .r2d2_buttle_wrapper{
@@ -82,7 +102,6 @@ h2{
 h2{
   font-size:1.8rem;
   font-weight: 400;
-  margin-bottom: 1rem;
   color: rgba(250, 33, 33, 0.904);
 }
 }
@@ -154,10 +173,10 @@ h2{
 
 .r2_One_shot{
   display:block;
+  background: url('/icon/djeadi_buttle.png');
   border: 1px solid white;
   width:50px;
   height:50px;
-  opacity: 0.8;
   &::after{
     background: url('/icon/ight\ swords_sith.png');
     content: "";

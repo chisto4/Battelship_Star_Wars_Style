@@ -37,6 +37,7 @@ const changeThreeShip2 = document.getElementById("three_ship_2");
 
 const changeForeShip = document.getElementById("fore_ship");
 
+// RED BORDER FUNCTION FUNCION
 
 function RedShipBorder(elem) {
   if (elem.style.border === "none") {
@@ -85,7 +86,6 @@ ArrayGridDj.forEach((node, index) => {
     mapAllShipWrapper.push(index);
   }
 })
-console.log(mapAllShipWrapper);
 
 //FILTER ZERO
 let mapArrZero = [];
@@ -121,13 +121,14 @@ ArrayGridDj.forEach((node, index) => {
 
 //FILTER CLEAR GRID
 let mapArrClearDj = [];
-ArrayGridDj.forEach((node, index) => {
-  if(!node.classList.contains('ship_wrapper_oneShip') && !node.classList.contains('zero') 
-      && !node.classList.contains('notWar') && !node.classList.contains('r2_One_shot')) {
-        mapArrClearDj.push(index);
+function clearMapGridArrayDj (){
+  ArrayGridDj.forEach((node, index) => {
+    if(!node.classList.contains('ship_wrapper_oneShip') && !node.classList.contains('zero') 
+        && !node.classList.contains('notWar') && !node.classList.contains('r2_One_shot')) {
+          mapArrClearDj.push(index);
+    }
+  })
   }
-})
-
 
 // FILTER ON R2D2 GRID!!!
 
@@ -156,7 +157,6 @@ ArrayGridr2d2.forEach((node, index) => {
     mapArrShipsR2.push(index);
   }
 })
-console.log('test', mapArrShipsR2)
 
 //FILTER ONE SHOUT
 let mapArrShotOnGridR2 = [];
@@ -175,6 +175,7 @@ ArrayGridr2d2.forEach((node, index) => {
         mapArrClearR2.push(index);
   }
 })
+
 
 //LIGH VERSION DOSENT WORK
 // const mapGridDjedai = Array.from(allShipWrapper);
@@ -201,8 +202,54 @@ function clearFunction (clear){
 }
 clearButton.addEventListener("click", _ => clearFunction(mapAllShipWrapper));
 
+//RANDOM SHOT function
 
+let randomNumberShout = 0;
+let randomShoutArr = [];
+//random
+function randomShoutNumber(){
+  return Math.floor(Math.random() * 101);
+}
 
+//RANDOM CLEAR function
+
+//FILTER CLEAR GRID FOR SHOUT
+let mapArrClearForShout = [];
+function clearMapGridForShout (){
+  mapArrClearForShout = [];
+    ArrayGridDj.forEach((node, index) => {
+    if(!node.classList.contains('zero') && !node.classList.contains('notWar') && !node.classList.contains('r2_One_shot')) {
+          mapArrClearForShout.push(index);
+    }
+  })
+  }
+  //test
+  clearMapGridForShout();
+
+let mapArray = [];
+function randomClearShout (){
+  return mapArray = mapArrClearForShout[Math.floor(Math.random() * mapArrClearForShout.length)];
+}
+
+//SHOUT
+function shout (){
+  randomClearShout();
+  clearMapGridForShout();
+  randomNumberShout = randomClearShout();
+  if(allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip')){
+    allShipWrapper[randomNumberShout].className = 'r2_One_shot';
+    // allShipWrapper[randomNumberShout].classList.add("r2_One_shot");
+  } else if(!allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip'))
+  allShipWrapper[randomNumberShout].classList.add("zero");
+  // mapArrClearForShout.push(randomClearShout());
+  console.log(randomClearShout());
+  console.log(mapArrClearForShout);
+
+  }
+
+testShoutButton.addEventListener("click",_=>shout(mapAllShipWrapper));
+
+//TWO SHIP ON BOARD FUNCTION
 
 
 
@@ -407,16 +454,19 @@ allShipWrapperr2d2[98].classList.add("ship_wrapper_oneShip_r2d2");
 
 }
 
+//RANDOM NUMBER FUNCTION
 let randomNumberScale = 0;
 function randomNumber(max){
   return Math.floor(Math.random() * max);
 }
 randomNumberScale = randomNumber(3);
-console.log('Random Number', randomNumberScale);
 
+//RANDOM SHIP GRID
 function randomOne (){
+  clearFunction(mapAllShipWrapper);
   dark.style.display = "flex";
   choice.style.display = "none";
+  clearMapGridForShout();
   if(randomNumberScale === 0){
     rnd1();
     rnd4();
