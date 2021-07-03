@@ -226,7 +226,12 @@ h2{
   opacity: 0.7;
 }
 
-
+.element_90deg {
+  transform:rotate(90deg);
+}
+.element_0deg {
+  transform:rotate(-90deg);
+}
 
 
 //R2D2 SETKA display none

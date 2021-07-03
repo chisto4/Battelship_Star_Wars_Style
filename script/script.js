@@ -249,8 +249,21 @@ function shout (){
 
 testShoutButton.addEventListener("click",_=>shout(mapAllShipWrapper));
 
-//TWO SHIP ON BOARD FUNCTION
+//ROTATE FUNCTION:
 
+function rotateButle (){
+      allTwoShipArr[0].classList.toggle("element_90deg");
+}
+    allTwoShipArr[0].addEventListener("dblclick",_=>rotateButle())
+
+
+//TWO SHIP ON BOARD FUNCTION
+function twoShipOnGrid () {
+  if(allTwoShipArr[0].classList === "element_90deg" ||
+    allTwoShipArr[0].style.border === "2px solid red"){
+
+    }
+}
 
 
 
@@ -276,6 +289,7 @@ let newAllShipWrapper;
       allThreeShipArr[0].style.border === "2px solid red" ||
       allThreeShipArr[1].style.border === "2px solid red" ||
       foreShipArr[0].style.border === "2px solid red" )
+      
       {
   if (gridElement.classList !== "ship_wrapper_oneShip") {
     gridElement.classList.add("ship_wrapper_oneShip");
@@ -425,19 +439,19 @@ function rnd3() {
 
 function rnd4() {
   //ONE BOARD
-  allShipWrapperr2d2[11].classList.add("ship_wrapper_oneShip_r2d2");
-  allShipWrapperr2d2[16].classList.add("ship_wrapper_oneShip_r2d2");
-  allShipWrapperr2d2[69].classList.add("ship_wrapper_oneShip_r2d2");
-  allShipWrapperr2d2[99].classList.add("ship_wrapper_oneShip_r2d2");
+  allShipWrapperr2d2[11].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
+  allShipWrapperr2d2[16].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
+  allShipWrapperr2d2[69].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
+  allShipWrapperr2d2[96].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
 //TWO BOARD
-allShipWrapperr2d2[28].classList.add("ship_wrapper_oneShip_r2d2");
-allShipWrapperr2d2[29].classList.add("ship_wrapper_oneShip_r2d2");
+allShipWrapperr2d2[28].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+allShipWrapperr2d2[29].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
 
-allShipWrapperr2d2[66].classList.add("ship_wrapper_oneShip_r2d2");
-allShipWrapperr2d2[67].classList.add("ship_wrapper_oneShip_r2d2");
+allShipWrapperr2d2[66].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+allShipWrapperr2d2[67].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
 
-allShipWrapperr2d2[96].classList.add("ship_wrapper_oneShip_r2d2");
-allShipWrapperr2d2[98].classList.add("ship_wrapper_oneShip_r2d2");
+allShipWrapperr2d2[99].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+allShipWrapperr2d2[98].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
   //THREE BOARD
   allShipWrapperr2d2[31].classList.add("ship_wrapper_oneShip_r2d2");
   allShipWrapperr2d2[41].classList.add("ship_wrapper_oneShip_r2d2");
@@ -485,14 +499,44 @@ randomButton.addEventListener("click", _ => randomOne());
 
 //LOGIC SHUTTER
 
+//map shouter oneBoardR2
+let mapShouterOneBoardR2 = [];
+function mapOneBoardSHoutR2(){
+  mapShouterOneBoardR2 = [];
+ArrayGridr2d2.forEach((node, index) => {
+  if(node.classList.contains('dj_One_shot')
+    && node.classList.contains('ship_wrapper_oneShip_r2d2')
+    && node.classList.contains('oneBoardR2')) {
+    mapShouterOneBoardR2.push(index);
+    
+  }
+})
+}
+
+
+function shout (){
+  randomClearShout();
+  clearMapGridForShout();
+  randomNumberShout = randomClearShout();
+  if(allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip')){
+    allShipWrapper[randomNumberShout].className = 'r2_One_shot';
+    // allShipWrapper[randomNumberShout].classList.add("r2_One_shot");
+  } else if(!allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip'))
+  allShipWrapper[randomNumberShout].classList.add("zero");
+
+
 function shutter ({target:gridElement}){
   if(  choice.style.display == "none"){
-    if(gridElement.classList == "ship_wrapper_oneShip_r2d2")
-          {gridElement.classList.add("zero")
-    } else {
-      gridElement.classList.add("dj_One_shot")
+    if(gridElement.classList.contains('ship_wrapper_oneShip_r2d2') 
+      ){
+        gridElement.classList.add("dj_One_shot");
+    } else if(!gridElement.classList.contains('ship_wrapper_oneShip_r2d2'))
+    {
+      gridElement.classList.add("zero")
     }
   }
+  mapOneBoardSHoutR2();
+  console.log('map one board broken', mapShouterOneBoardR2)
 }
 
 allShipWrapperr2d2.forEach((el)=> {
@@ -500,3 +544,17 @@ allShipWrapperr2d2.forEach((el)=> {
   // console.log(el);
 })
 
+// function shout (){
+//   randomClearShout();
+//   clearMapGridForShout();
+//   randomNumberShout = randomClearShout();
+//   if(allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip')){
+//     allShipWrapper[randomNumberShout].className = 'r2_One_shot';
+//     // allShipWrapper[randomNumberShout].classList.add("r2_One_shot");
+//   } else if(!allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip'))
+//   allShipWrapper[randomNumberShout].classList.add("zero");
+//   // mapArrClearForShout.push(randomClearShout());
+//   console.log(randomClearShout());
+//   console.log(mapArrClearForShout);
+
+//   }
