@@ -238,6 +238,7 @@ function shout (){
   randomNumberShout = randomClearShout();
   if(allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip')){
     allShipWrapper[randomNumberShout].className = 'r2_One_shot';
+    shout(mapAllShipWrapper);
     // allShipWrapper[randomNumberShout].classList.add("r2_One_shot");
   } else if(!allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip'))
   allShipWrapper[randomNumberShout].classList.add("zero");
@@ -507,22 +508,88 @@ ArrayGridr2d2.forEach((node, index) => {
   if(node.classList.contains('dj_One_shot')
     && node.classList.contains('ship_wrapper_oneShip_r2d2')
     && node.classList.contains('oneBoardR2')) {
-    mapShouterOneBoardR2.push(index);
-    
+      if(index == 0){
+        mapShouterOneBoardR2.push(index + 1);
+        mapShouterOneBoardR2.push(index + 10);
+        mapShouterOneBoardR2.push(index + 11);
+      } else if(index == 9){
+        mapShouterOneBoardR2.push(index - 1);
+        mapShouterOneBoardR2.push(index + 10);
+        mapShouterOneBoardR2.push(index + 9);
+      } else if(index == 90){
+        mapShouterOneBoardR2.push(index + 1);
+        mapShouterOneBoardR2.push(index - 10);
+        mapShouterOneBoardR2.push(index - 9);
+      } else if(index == 99){
+        mapShouterOneBoardR2.push(index - 1);
+        mapShouterOneBoardR2.push(index - 10);
+        mapShouterOneBoardR2.push(index - 11);
+      } else if(index == 1 || index == 2 || index == 3
+        || index == 4 || index == 5 || index == 6
+        || index == 7 || index == 8){
+        mapShouterOneBoardR2.push(index - 1);
+        mapShouterOneBoardR2.push(index + 1);
+        mapShouterOneBoardR2.push(index + 9);
+        mapShouterOneBoardR2.push(index + 10);
+        mapShouterOneBoardR2.push(index + 11);
+      } else if(index == 10 || index == 20 || index == 30
+        || index == 40 || index == 50 || index == 60
+        || index == 70 || index == 80){
+        mapShouterOneBoardR2.push(index - 10);
+        mapShouterOneBoardR2.push(index + 1);
+        mapShouterOneBoardR2.push(index - 9);
+        mapShouterOneBoardR2.push(index + 10);
+        mapShouterOneBoardR2.push(index + 11);
+      } else if(index === 91 || index === 92 || index === 93
+        || index === 94 || index === 95 || index === 96
+        || index === 97 || index === 98){
+        mapShouterOneBoardR2.push(index - 1);
+        mapShouterOneBoardR2.push(index - 11);
+        mapShouterOneBoardR2.push(index - 10);
+        mapShouterOneBoardR2.push(index - 9);
+        mapShouterOneBoardR2.push(index + 1);
+      } else if(index === 19 || index === 29 || index === 39
+        || index === 49 || index === 59 || index === 69
+        || index === 79 || index === 89){
+        mapShouterOneBoardR2.push(index - 10);
+        mapShouterOneBoardR2.push(index - 11);
+        mapShouterOneBoardR2.push(index - 1);
+        mapShouterOneBoardR2.push(index + 9);
+        mapShouterOneBoardR2.push(index + 10);
+        } else {
+    mapShouterOneBoardR2.push(index - 1);
+    mapShouterOneBoardR2.push(index + 1);
+    mapShouterOneBoardR2.push(index + 10);
+    mapShouterOneBoardR2.push(index - 10);
+    mapShouterOneBoardR2.push(index - 9);
+    mapShouterOneBoardR2.push(index + 9);
+    mapShouterOneBoardR2.push(index + 11);
+    mapShouterOneBoardR2.push(index - 11);
+  }
+    console.log(mapShouterOneBoardR2);
   }
 })
 }
 
 
-function shout (){
-  randomClearShout();
-  clearMapGridForShout();
-  randomNumberShout = randomClearShout();
-  if(allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip')){
-    allShipWrapper[randomNumberShout].className = 'r2_One_shot';
-    // allShipWrapper[randomNumberShout].classList.add("r2_One_shot");
-  } else if(!allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip'))
-  allShipWrapper[randomNumberShout].classList.add("zero");
+function notWarPoint() {
+  mapShouterOneBoardR2.forEach((value) => {
+    allShipWrapperr2d2[value].classList.add("notWar");
+    console.log('value condithion', value);
+    // allShipWrapper[(value-1)].classList.add("notWar");
+    // allShipWrapper[(value+10)].classList.add("notWar");
+    // allShipWrapper[(value-10)].classList.add("notWar");
+  })
+}
+// function shout (){
+//   randomClearShout();
+//   clearMapGridForShout();
+//   randomNumberShout = randomClearShout();
+//   if(allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip')){
+//     allShipWrapper[randomNumberShout].className = 'r2_One_shot';
+//     // allShipWrapper[randomNumberShout].classList.add("r2_One_shot");
+//   } else if(!allShipWrapper[randomNumberShout].classList.contains('ship_wrapper_oneShip'))
+//   allShipWrapper[randomNumberShout].classList.add("zero");
 
 
 function shutter ({target:gridElement}){
@@ -532,10 +599,13 @@ function shutter ({target:gridElement}){
         gridElement.classList.add("dj_One_shot");
     } else if(!gridElement.classList.contains('ship_wrapper_oneShip_r2d2'))
     {
-      gridElement.classList.add("zero")
+      gridElement.classList.add("zero");
+      shout ();
     }
   }
   mapOneBoardSHoutR2();
+  notWarPoint();
+
   console.log('map one board broken', mapShouterOneBoardR2)
 }
 
