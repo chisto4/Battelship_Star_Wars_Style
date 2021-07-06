@@ -378,9 +378,34 @@ width: 50%;
 height:auto;
 }
 
+// TEST WRAPPER
 .test_modul_button {
   display: none;
 }
 #play {
-  display: none;
+  display: block;
+}
+
+.setting {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+  img {
+    width: 20px;
+    height: 20px;
+  }
+}
+
+.relodPage {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  img {
+    width: 100px;
+    height: 100px;
+  }
+}
+
+.vision {
+  display: flex;
 }

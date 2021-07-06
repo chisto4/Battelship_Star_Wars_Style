@@ -490,6 +490,34 @@ header {
 }
 
 #play {
-  display: none;
+  display: block;
+}
+
+.setting {
+  position: fixed;
+  bottom: 1rem;
+  left: 1rem;
+}
+
+.setting img {
+  width: 20px;
+  height: 20px;
+}
+
+.relodPage {
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+}
+
+.relodPage img {
+  width: 100px;
+  height: 100px;
+}
+
+.vision {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
 }
 /*# sourceMappingURL=style.css.map */

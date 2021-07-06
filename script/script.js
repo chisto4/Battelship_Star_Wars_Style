@@ -4,6 +4,9 @@ const buttonTest = document.getElementById("changeWrapperDark");
 const dark = document.getElementById("r2d2");
 const choice = document.getElementById("shipping");
 const shipWrapperOne = document.getElementsByClassName("ship_wrapper_one");
+const settingImage = document.getElementById("settingHref");
+const reloadImage = document.getElementById("reloadHref");
+const testModul = document.getElementById("settingWrapper");
 const testShoutButton = document.getElementById("test_shout");
 const clearButton = document.getElementById("clear_button");
 
@@ -20,6 +23,16 @@ function buttonTestonClick() {
 }
 buttonTest.addEventListener("click", _ => buttonTestonClick());
 
+function settingVision() {
+    testModul.classList.toggle("vision");
+}
+ 
+settingImage.addEventListener("click", _ => settingVision());
+
+function reloadPageimage(){
+  window.location.reload();
+}
+reloadImage.addEventListener("click", _ => reloadPageimage());
 
 //CHOICE SHIP FUNCTION 
 
@@ -103,13 +116,16 @@ ArrayGridDj.forEach((node, index) => {
   }
 })
 
-//FILTER SHIPS
+// FUNCTION SCALE SHIPS ON DJEDAI BOARD
 let mapArrShipsDj = [];
-ArrayGridDj.forEach((node, index) => {
-  if(node.classList.contains('ship_wrapper_oneShip')) {
-    mapArrShipsDj.push(index);
-  }
-})
+function scaleShipsDj(){
+  ArrayGridDj.forEach((node, index) => {
+    if(node.classList.contains('ship_wrapper_oneShip')) {
+      mapArrShipsDj.push(index);
+    }
+  })
+}
+
 
 //FILTER ONE SHOUT
 let mapArrShotOnGridDj = [];
@@ -351,50 +367,100 @@ let newAllShipWrapper;
       allThreeShipArr[1].style.border === "2px solid red" ||
       foreShipArr[0].style.border === "2px solid red" )
       {
+
+        //ONE
   if (gridElement.classList !== "ship_wrapper_oneShip") {
     gridElement.classList.add("ship_wrapper_oneShip");
     if(allOneShipArr[0].style.border === "2px solid red"){
+      gridElement.classList.add("ship_wrapper_oneShip",  "oneBoardDj",  "controlPoint");
+      MapBoardForOneBoardDj(oneBoardShipOne);
+      if( gridElement.classList.contains("ship_wrapper_oneShip",  "oneBoardDj",  "controlPoint")
+      ) {
       allOneShipArr[0].style.border = "none";
       allOneShipArr[0].remove();  
+      }
     }else if(allOneShipArr[1].style.border === "2px solid red"){
+      gridElement.classList.add("ship_wrapper_oneShip",  "oneBoardDj",  "controlPoint");
+      MapBoardForOneBoardDj(oneBoardShipTwo);
+      if( gridElement.classList.contains("ship_wrapper_oneShip",  "oneBoardDj",  "controlPoint")
+      ) {
       allOneShipArr[1].style.border = "none";
-      allOneShipArr[1].remove();  
+      allOneShipArr[1].remove(); 
+      } 
     }else if(allOneShipArr[2].style.border === "2px solid red"){
+      gridElement.classList.add("ship_wrapper_oneShip",  "oneBoardDj",  "controlPoint");
+      MapBoardForOneBoardDj(oneBoardShipThree);
+      if( gridElement.classList.contains("ship_wrapper_oneShip",  "oneBoardDj",  "controlPoint")
+      ) {
       allOneShipArr[2].style.border = "none";
-      allOneShipArr[2].remove();  
+      allOneShipArr[2].remove(); 
+      }
     }else if(allOneShipArr[3].style.border === "2px solid red"){
+      gridElement.classList.add("ship_wrapper_oneShip",  "oneBoardDj",  "controlPoint");
+      MapBoardForOneBoardDj(oneBoardShipFore);
+      if( gridElement.classList.contains("ship_wrapper_oneShip",  "oneBoardDj",  "controlPoint")
+      ) {
       allOneShipArr[3].style.border = "none";
       allOneShipArr[3].remove();  
+      }
 
+        //TWO
     } else if(allTwoShipArr[0].style.border === "2px solid red"){
       gridElement.classList.add("ship_wrapper_oneShip",  "twoBoardDj",  "controlPoint");
-      MapBoardForTwoBoardDj();
+      MapBoardForTwoBoardDj(twoBoardShipOne);
       if( gridElement.classList.contains("ship_wrapper_oneShip",  "twoBoardDj",  "controlPoint")
       ) {
         allTwoShipArr[0].style.border = "none";
         allTwoShipArr[0].remove(); 
       }
-      
     } else if(allTwoShipArr[1].style.border === "2px solid red"){
+      gridElement.classList.add("ship_wrapper_oneShip",  "twoBoardDj",  "controlPoint");
+      MapBoardForTwoBoardDj(twoBoardShipTwo);
+      if( gridElement.classList.contains("ship_wrapper_oneShip",  "twoBoardDj",  "controlPoint")
+      ) {
       allTwoShipArr[1].style.border = "none";
       allTwoShipArr[1].remove();  
+      }
     } else if(allTwoShipArr[2].style.border === "2px solid red"){
+      gridElement.classList.add("ship_wrapper_oneShip",  "twoBoardDj",  "controlPoint");
+      MapBoardForTwoBoardDj(twoBoardShipThree);
+      if( gridElement.classList.contains("ship_wrapper_oneShip",  "twoBoardDj",  "controlPoint")
+      ) {
       allTwoShipArr[2].style.border = "none";
       allTwoShipArr[2].remove();
+      }
+
+        //THREE
     } else if(allThreeShipArr[0].style.border === "2px solid red"){
+      gridElement.classList.add("ship_wrapper_oneShip",  "threeBoardDj",  "controlPoint");
+      MapBoardForThreeBoardDj(threeBoardShipOne);
+      if( gridElement.classList.contains("ship_wrapper_oneShip",  "threeBoardDj",  "controlPoint")
+      ) {
       allThreeShipArr[0].style.border = "none";
       allThreeShipArr[0].remove();
+      }
     } else if(allThreeShipArr[1].style.border === "2px solid red"){
+      gridElement.classList.add("ship_wrapper_oneShip",  "threeBoardDj",  "controlPoint");
+      MapBoardForThreeBoardDj(threeBoardShipTwo);
+      if( gridElement.classList.contains("ship_wrapper_oneShip",  "threeBoardDj",  "controlPoint")
+      ) {
       allThreeShipArr[1].style.border = "none";
       allThreeShipArr[1].remove();
+      }
+
+
+      //FORE
     } else if(foreShipArr[0].style.border === "2px solid red"){
+      gridElement.classList.add("ship_wrapper_oneShip",  "foreBoardDj",  "controlPoint");
+      MapBoardForForeBoardDj(foreBoardShipOne);
+      if( gridElement.classList.contains("ship_wrapper_oneShip",  "foreBoardDj",  "controlPoint")
+      ) {
       foreShipArr[0].style.border = "none";
       foreShipArr[0].remove();
-    
+      }
   } else if(gridElement.classList === "ship_wrapper_oneShip") {
     gridElement.classList.remove("ship_wrapper_oneShip");
     gridElement.classList.add("ship_wrapper");
-    console.log("zalupa", gridElement);
   }}
 }}
 
@@ -410,6 +476,7 @@ allShipWrapper.forEach((el, index)=> {
 
 
 
+//BLOCK ABOUT START PLAY GAME
 
 let Arr1 = [];
 
@@ -633,6 +700,29 @@ function randomOne (){
 }
 
 randomButton.addEventListener("click", _ => randomOne());
+
+// START PLAY GAME FUNCTION
+function playGame (){
+  scaleShipsDj();
+  if(mapArrShipsDj.length === 20){
+    dark.style.display = "flex";
+    choice.style.display = "none";
+    clearMapGridForShout();
+    if(randomNumberScale === 0){
+      rnd3R2();
+    }
+    else if(randomNumberScale === 1){
+      rnd2R2();
+    }
+      else{
+        rnd1R2();
+    }
+  }
+  else {
+    randomOne();
+  }
+}
+playButton.addEventListener("click", _ => playGame());
 
 //LOGIC SHUTTER
 
@@ -1521,11 +1611,140 @@ ArrayGridDj.forEach((node, index) => {
   }
 })
 }
+// FUNCTION ADD SHIP ON GRID WHEN START GAME
+
+//ARRAY FOR ONE SHIP
+const oneBoardShipOne = document.getElementById('one_ship_1');
+const oneBoardShipTwo = document.getElementById('one_ship_2');
+const oneBoardShipThree = document.getElementById('one_ship_3');
+const oneBoardShipFore = document.getElementById('one_ship_4');
+function MapBoardForOneBoardDj(boardd)
+{
+    ArrayGridDj.forEach((node, index) => 
+    { if(
+          node.classList.contains('ship_wrapper_oneShip')
+          && node.classList.contains('oneBoardDj')
+          && node.classList.contains('controlPoint')
+        ) 
+          if(
+                   index === 10 || index === 20 || index === 30
+                   || index === 40 || index === 50 || index === 60 || index === 70
+                   || index === 80
+                 ) {
+                   if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip')
+                    ){
+                      allShipWrapper[index].className = 'ship_wrapper';
+                      alert("Выберите другую клетку!");
+                    } else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
+                    }
+                 } else if(index === 0){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
+                  }
+                 } else if(index === 90){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
+                 }
+                 } else if(
+                            index === 91 || index === 92 || index === 93 || index === 98
+                            || index === 94 || index === 95 || index === 96 || index === 97
+                  ){
+                    if(
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip')
+                    ){
+                      allShipWrapper[index].className = 'ship_wrapper';
+                      alert("Выберите другую клетку!");
+                    } else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
+                    }
+                 } else if( index === 99){
+                   if(
+                    allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
+                 }
+                 } else if(
+                   index === 1 || index === 2 || index === 3 || index === 4
+                   || index === 5 || index === 6 || index === 7 || index === 8
+                 ) {
+                   if(
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
+                 }
+                 } else if ( index === 9){
+                   if(
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
+                 }
+                 }
+
+                else if(
+                  allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip')
+                ){
+                  allShipWrapper[index].className = 'ship_wrapper';
+                  alert("Выберите другую клетку!");  
+                } else {
+                  allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
+            }
+    }
+    )}
 
 //ARRAY FOR TWO BOARD LOGIC CHOICE START GAME
-
+const twoBoardShipOne = document.getElementById('two_ship_1');
+const twoBoardShipTwo = document.getElementById('two_ship_2');
+const twoBoardShipThree = document.getElementById('two_ship_3');
 let arrayMapBoardForTwoBoardDj = [];
-function MapBoardForTwoBoardDj()
+function MapBoardForTwoBoardDj(boardd)
 {
   arrayMapBoardForTwoBoardDj = [];
     ArrayGridDj.forEach((node, index) => 
@@ -1533,7 +1752,7 @@ function MapBoardForTwoBoardDj()
           node.classList.contains('ship_wrapper_oneShip')
           && node.classList.contains('twoBoardDj')
           && node.classList.contains('controlPoint')
-          && !node.classList.contains('element_90deg')
+          && !boardd.classList.contains('element_90deg')
         ) 
           { if(
               index === 9 || index === 19 || index === 29 || index === 39
@@ -1543,43 +1762,1204 @@ function MapBoardForTwoBoardDj()
                 {
                 allShipWrapper[index].className = 'ship_wrapper';
                 alert("Выберите другую клетку!");
-                }
+                } else if(
+                   index === 10 || index === 20 || index === 30
+                   || index === 40 || index === 50 || index === 60 || index === 70
+                   || index === 80
+                 ) {
+                   if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip')
+                    ){
+                      allShipWrapper[index].className = 'ship_wrapper';
+                      alert("Выберите другую клетку!");
+                    } else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 1].className = 'ship_wrapper_oneShip twoBoardDj';
+
+                      // allShipWrapper[index + 1].classList.add('ship_wrapper_oneShip twoBoardDj');
+                    }
+                 } else if(index === 0){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip twoBoardDj';
+                 }
+                 } else if(index === 90){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip twoBoardDj';
+                 }
+                 } else if(
+                            index === 91 || index === 92 || index === 93 
+                            || index === 94 || index === 95 || index === 96 || index === 97
+                  ){
+                    if(
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip')
+                    ){
+                      allShipWrapper[index].className = 'ship_wrapper';
+                      alert("Выберите другую клетку!");
+                    } else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 1].className = 'ship_wrapper_oneShip twoBoardDj';
+                    }
+                 } else if( index === 98){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip twoBoardDj';
+                 }
+                 } else if(
+                   index === 1 || index === 2 || index === 3 || index === 4
+                   || index === 5 || index === 6 || index === 7
+                 ) {
+                   if(
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip twoBoardDj';
+                 }
+                 } else if ( index === 8){
+                   if(
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip twoBoardDj';
+                 }
+                 }
+
                 else if(
+                  allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
                   allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
-                  allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip')
+                  allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip')
                 ){
                   allShipWrapper[index].className = 'ship_wrapper';
                   alert("Выберите другую клетку!");  
                 } else {
-                  allShipWrapper[index + 1].classList.add('ship_wrapper_oneShip', 'twoBoardDj');
-                }
+                  allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                  allShipWrapper[index + 1].className = 'ship_wrapper_oneShip twoBoardDj';
+            }
           } else if (
             node.classList.contains('ship_wrapper_oneShip')
             && node.classList.contains('twoBoardDj')
             && node.classList.contains('controlPoint')
-            && node.classList.contains('element_90deg')
-          ) 
+            && boardd.classList.contains('element_90deg')
+            ) 
             { if(
                 index === 90 || index === 91 || index === 92 || index === 93
                 || index === 94 || index === 95 || index === 96 || index === 97
                 || index === 98 || index === 99
                 )
-                  {
-                  allShipWrapper[index].className = 'ship_wrapper';
-                  alert("Выберите другую клетку!");
+                {
+                allShipWrapper[index].className = 'ship_wrapper';
+                alert("Выберите другую клетку!");
+                } 
+              else if(
+                  index === 19 || index === 29 || index === 39
+                  || index === 49 || index === 59 || index === 69 || index === 79
+                  ){
+                    if(
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip twoBoardDj';
+                    }
                   }
+              else if(index === 9){
+                    if(
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip')
+                      ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                        } 
+                    else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip twoBoardDj';
+                          }
+                       } 
+              else if(index === 89){
+                    if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip')
+                      ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                        } 
+                    else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip twoBoardDj';
+                          }
+                       }
+              else if(
+                  index === 10 || index === 20 || index === 30
+                  || index === 40 || index === 50 || index === 60 || index === 70
+                  ){
+                    if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip twoBoardDj';
+                    }
+                  }
+              else if(
+                  index === 0
+                  ){
+                    if(
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip twoBoardDj';
+                    }
+                  }
+              else if(
+                  index === 80
+                  ){
+                    if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip twoBoardDj';
+                    }
+                  }
+              else if(
+                  index === 81 || index === 82 || index === 83 || index === 84
+                  || index === 85 || index === 86 || index === 87 || index === 88
+                  ){
+                    if(
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip twoBoardDj';
+                    }
+                  }
+              else if(
+                  index === 1 || index === 2 || index === 3 || index === 4
+                  || index === 5 || index === 6 || index === 7 || index === 8
+                  ){
+                    if(
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip twoBoardDj';
+                    }
+                  }
+
                   else if(
-                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
-                    allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip')
+                  allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip')
                   ){
                     allShipWrapper[index].className = 'ship_wrapper';
                     alert("Выберите другую клетку!");  
                   } else {
-                    allShipWrapper[index + 10].classList.add('ship_wrapper_oneShip', 'twoBoardDj');
-                  }
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip twoBoardDj';
+                    allShipWrapper[index + 10].className = 'ship_wrapper_oneShip twoBoardDj';
+                }
             }
     }
     )}
+
+    //ARRAY FOR THREE BOARD LOGIC CHOICE START GAME
+const threeBoardShipOne = document.getElementById('three_ship_1');
+const threeBoardShipTwo = document.getElementById('three_ship_2');
+function MapBoardForThreeBoardDj(boardd)
+{
+    ArrayGridDj.forEach((node, index) => 
+    { if( //HORIZONTAL ORINTAION
+          node.classList.contains('ship_wrapper_oneShip')
+          && node.classList.contains('threeBoardDj')
+          && node.classList.contains('controlPoint')
+          && !boardd.classList.contains('element_90deg')
+        ) 
+          { if(
+              index === 9 || index === 19 || index === 29 || index === 39
+              || index === 49 || index === 59 || index === 69 || index === 79
+              || index === 89 || index === 99 || index === 8 || index === 18 || 
+              index === 28 || index === 38 || index === 48 || index === 58 || 
+              index === 68 || index === 78
+              || index === 88 || index === 98
+              )
+                {
+                allShipWrapper[index].className = 'ship_wrapper';
+                alert("Выберите другую клетку!");
+                } else if(
+                   index === 10 || index === 20 || index === 30
+                   || index === 40 || index === 50 || index === 60 || index === 70
+                   || index === 80
+                 ) {
+                   if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 7].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 13].classList.contains('ship_wrapper_oneShip')
+                    ){
+                      allShipWrapper[index].className = 'ship_wrapper';
+                      alert("Выберите другую клетку!");
+                    } else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 1].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 2].className = 'ship_wrapper_oneShip threeBoardDj';
+
+                      // allShipWrapper[index + 1].classList.add('ship_wrapper_oneShip twoBoardDj');
+                    }
+                 } else if(index === 0){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 13].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip threeBoardDj';
+                 }
+                 } else if(index === 90){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 7].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip threeBoardDj';
+                 }
+                 } else if(
+                            index === 91 || index === 92 || index === 93 
+                            || index === 94 || index === 95 || index === 96
+                  ){
+                    if(
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 7].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip')
+                    ){
+                      allShipWrapper[index].className = 'ship_wrapper';
+                      alert("Выберите другую клетку!");
+                    } else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 1].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 2].className = 'ship_wrapper_oneShip threeBoardDj';
+                    }
+                 } else if( index === 97){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip threeBoardDj';
+                 }
+                 } else if(
+                   index === 1 || index === 2 || index === 3 || index === 4
+                   || index === 5 || index === 6
+                 ) {
+                   if(
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 13].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip threeBoardDj';
+                 }
+                 } else if ( index === 7){
+                   if(
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip threeBoardDj';
+                 }
+                 }
+
+                else if(
+                  allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 7].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 13].classList.contains('ship_wrapper_oneShip')
+                ){
+                  allShipWrapper[index].className = 'ship_wrapper';
+                  alert("Выберите другую клетку!");  
+                } else {
+                  allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                  allShipWrapper[index + 1].className = 'ship_wrapper_oneShip threeBoardDj';
+                  allShipWrapper[index + 2].className = 'ship_wrapper_oneShip threeBoardDj';
+            }
+          } else if (
+            node.classList.contains('ship_wrapper_oneShip')
+            && node.classList.contains('threeBoardDj')
+            && node.classList.contains('controlPoint')
+            && boardd.classList.contains('element_90deg')
+            ) 
+            { if(
+                index === 90 || index === 91 || index === 92 || index === 93
+                || index === 94 || index === 95 || index === 96 || index === 97
+                || index === 98 || index === 99 || index === 80 || index === 81 
+                || index === 82 || index === 83|| index === 84 || index === 85 
+                || index === 86 || index === 87|| index === 88 || index === 89
+                )
+                {
+                allShipWrapper[index].className = 'ship_wrapper';
+                alert("Выберите другую клетку!");
+                } 
+              else if(
+                  index === 19 || index === 29 || index === 39
+                  || index === 49 || index === 59 || index === 69
+                  ){
+                    if(
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip threeBoardDj';
+                    }
+                  }
+              else if(index === 9){
+                    if(
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip')
+                      ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                        } 
+                    else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip threeBoardDj';
+                          }
+                       } 
+              else if(index === 79){
+                    if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip')
+                      ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                        } 
+                    else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip threeBoardDj';
+                          }
+                       }
+              else if(
+                  index === 10 || index === 20 || index === 30
+                  || index === 40 || index === 50 || index === 60
+                  ){
+                    if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip threeBoardDj';
+                    }
+                  }
+              else if(
+                  index === 0
+                  ){
+                    if(
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip threeBoardDj';
+                    }
+                  }
+              else if(
+                  index === 70
+                  ){
+                    if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip threeBoardDj';
+                    }
+                  }
+              else if(
+                  index === 71 || index === 72 || index === 73 || index === 74
+                  || index === 75 || index === 76 || index === 77 || index === 78
+                  ){
+                    if(
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip threeBoardDj';
+                    }
+                  }
+              else if(
+                  index === 1 || index === 2 || index === 3 || index === 4
+                  || index === 5 || index === 6 || index === 7 || index === 8
+                  ){
+                    if(
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip threeBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip threeBoardDj';
+                    }
+                  }
+
+                  else if(
+                  allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip')
+                  ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");  
+                  } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 10].className = 'ship_wrapper_oneShip threeBoardDj';
+                    allShipWrapper[index + 20].className = 'ship_wrapper_oneShip threeBoardDj';
+                }
+            }
+    }
+    )}
+
+        //ARRAY FOR FORE BOARD LOGIC CHOICE START GAME
+const foreBoardShipOne = document.getElementById('fore_ship');
+function MapBoardForForeBoardDj(boardd)
+{
+    ArrayGridDj.forEach((node, index) => 
+    { if( //HORIZONTAL ORINTAION
+          node.classList.contains('ship_wrapper_oneShip')
+          && node.classList.contains('foreBoardDj')
+          && node.classList.contains('controlPoint')
+          && !boardd.classList.contains('element_90deg')
+        ) 
+          { if(
+              index === 9 || index === 19 || index === 29 || index === 39
+              || index === 49 || index === 59 || index === 69 || index === 79
+              || index === 89 || index === 99 || index === 8 || index === 18
+              || index === 28 || index === 38 || index === 48 || index === 58
+              || index === 68 || index === 78 || index === 88 || index === 98
+              || index === 7 || index === 17 || index === 27 || index === 37
+              || index === 47 || index === 57 || index === 67 || index === 77 
+              || index === 87 || index === 97
+              )
+                {
+                allShipWrapper[index].className = 'ship_wrapper';
+                alert("Выберите другую клетку!");
+                } else if(
+                   index === 10 || index === 20 || index === 30
+                   || index === 40 || index === 50 || index === 60 || index === 70
+                   || index === 80
+                 ) {
+                   if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 7].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 6].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 4].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 13].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 14].classList.contains('ship_wrapper_oneShip')
+                    ){
+                      allShipWrapper[index].className = 'ship_wrapper';
+                      alert("Выберите другую клетку!");
+                    } else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 1].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 2].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 3].className = 'ship_wrapper_oneShip foreBoardDj';
+                    }
+                 } else if(index === 0){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 4].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 13].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 14].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 3].className = 'ship_wrapper_oneShip foreBoardDj';
+                 }
+                 } else if(index === 90){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 4].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 7].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 6].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 3].className = 'ship_wrapper_oneShip foreBoardDj';
+                 }
+                 } else if(
+                            index === 91 || index === 92 || index === 93 
+                            || index === 94 || index === 95
+                  ){
+                    if(
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 4].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 7].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 6].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip')
+                    ){
+                      allShipWrapper[index].className = 'ship_wrapper';
+                      alert("Выберите другую клетку!");
+                    } else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 1].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 2].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 3].className = 'ship_wrapper_oneShip foreBoardDj';
+                    }
+                 } else if( index === 96){
+                   if(
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 7].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 3].className = 'ship_wrapper_oneShip foreBoardDj';
+                 }
+                 } else if(
+                   index === 1 || index === 2 || index === 3 || index === 4
+                   || index === 5 
+                 ) {
+                   if(
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 4].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 13].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 14].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 3].className = 'ship_wrapper_oneShip foreBoardDj';
+                 }
+                 } else if ( index === 6){
+                   if(
+                    allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip') ||
+                    allShipWrapper[index + 13].classList.contains('ship_wrapper_oneShip')
+                   ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");
+                   } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 1].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 2].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 3].className = 'ship_wrapper_oneShip foreBoardDj';
+                 }
+                 }
+
+                else if(
+                  allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 2].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 3].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 4].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 8].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 7].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 6].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 12].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 13].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 14].classList.contains('ship_wrapper_oneShip')
+                ){
+                  allShipWrapper[index].className = 'ship_wrapper';
+                  alert("Выберите другую клетку!");  
+                } else {
+                  allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                  allShipWrapper[index + 1].className = 'ship_wrapper_oneShip foreBoardDj';
+                  allShipWrapper[index + 2].className = 'ship_wrapper_oneShip foreBoardDj';
+                  allShipWrapper[index + 3].className = 'ship_wrapper_oneShip foreBoardDj';
+            }
+          } else if (
+            node.classList.contains('ship_wrapper_oneShip')
+            && node.classList.contains('foreBoardDj')
+            && node.classList.contains('controlPoint')
+            && boardd.classList.contains('element_90deg')
+            ) 
+            { if(
+                index === 90 || index === 91 || index === 92 || index === 93
+                || index === 94 || index === 95 || index === 96 || index === 97
+                || index === 98 || index === 99 || index === 80 || index === 81 
+                || index === 82 || index === 83|| index === 84 || index === 85 
+                || index === 86 || index === 87|| index === 88 || index === 89
+                || index === 70 || index === 71|| index === 72 || index === 73 
+                || index === 74 || index === 75|| index === 76 || index === 77
+                || index === 78 || index === 79
+                )
+                {
+                allShipWrapper[index].className = 'ship_wrapper';
+                alert("Выберите другую клетку!");
+                } 
+              else if(
+                  index === 19 || index === 29 || index === 39
+                  || index === 49 || index === 59
+                  ){
+                    if(
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 39].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 40].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 30].className = 'ship_wrapper_oneShip foreBoardDj';
+                    }
+                  }
+              else if(index === 9){
+                    if(
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 39].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 40].classList.contains('ship_wrapper_oneShip')
+                      ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                        } 
+                    else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 30].className = 'ship_wrapper_oneShip foreBoardDj';
+                          }
+                       } 
+              else if(index === 69){
+                    if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip')
+                      ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                        } 
+                    else {
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 30].className = 'ship_wrapper_oneShip foreBoardDj';
+                          }
+                       }
+              else if(
+                  index === 10 || index === 20 || index === 30
+                  || index === 40 || index === 50 
+                  ){
+                    if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 40].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 41].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 30].className = 'ship_wrapper_oneShip foreBoardDj';
+                    }
+                  }
+              else if(
+                  index === 0
+                  ){
+                    if(
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 40].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 41].classList.contains('ship_wrapper_oneShip')
+
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 30].className = 'ship_wrapper_oneShip foreBoardDj';
+                    }
+                  }
+              else if(
+                  index === 60
+                  ){
+                    if(
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 30].className = 'ship_wrapper_oneShip foreBoardDj';
+                    }
+                  }
+              else if(
+                  index === 61 || index === 62 || index === 63 || index === 64
+                  || index === 65 || index === 66 || index === 67 || index === 68
+                  ){
+                    if(
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 30].className = 'ship_wrapper_oneShip foreBoardDj';
+                    }
+                  }
+              else if(
+                  index === 1 || index === 2 || index === 3 || index === 4
+                  || index === 5 || index === 6 || index === 7 || index === 8
+                  ){
+                    if(
+                      allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 39].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 40].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 41].classList.contains('ship_wrapper_oneShip')
+                    ){
+                        allShipWrapper[index].className = 'ship_wrapper';
+                        alert("Выберите другую клетку!");
+                    } else{
+                      allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 10].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 20].className = 'ship_wrapper_oneShip foreBoardDj';
+                      allShipWrapper[index + 30].className = 'ship_wrapper_oneShip foreBoardDj';
+                    }
+                  }
+
+                  else if(
+                  allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 19].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 20].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 21].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 29].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 30].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 31].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 39].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 40].classList.contains('ship_wrapper_oneShip') ||
+                  allShipWrapper[index + 41].classList.contains('ship_wrapper_oneShip')
+              ){
+                    allShipWrapper[index].className = 'ship_wrapper';
+                    alert("Выберите другую клетку!");  
+                  } else {
+                    allShipWrapper[index].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 10].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 20].className = 'ship_wrapper_oneShip foreBoardDj';
+                    allShipWrapper[index + 30].className = 'ship_wrapper_oneShip foreBoardDj';
+                }
+            }
+    }
+    )}
+
+
 
 //         mapShouterForeBoardDj.push(index + 1);
 //         mapShouterForeBoardDj.push(index + 10);
@@ -1751,10 +3131,11 @@ function shutter ({target:gridElement}){
     } else if(!gridElement.classList.contains('ship_wrapper_oneShip_r2d2'))
     {
       gridElement.classList.add("zero");
+      youLose();
       shout ();
     }
   }
-  youLose();
+  
   mapOneBoardSHoutR2();
   notWarPoint(mapShouterOneBoardR2);
   mapTwoBoardSHoutR2();
