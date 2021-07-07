@@ -12,11 +12,11 @@ button{
   border:rgb(108, 250, 255);
   background:rgba(141, 213, 216, 0.473);
   color: rgba(255, 0, 0, 0.658);
-  font-size:2rem;
-  width: 250px;
-  padding:1rem 1.5rem;
+  font-size:1rem;
+  width: auto;
+  padding:0.8rem 1.4rem;
   border-radius: 3rem;
-  margin: 1rem;
+  margin: 0.4rem;
   transition: 0.8s;
   &:hover{
     background:rgba(141, 213, 216, 0.952);
@@ -46,8 +46,8 @@ header {
 display:flex;
 flex-direction: row;
 justify-content: center;
-padding-top: 1rem;
-font-size: 2rem;
+padding-top: 0.5rem;
+font-size: 1.5rem;
 font-weight: 300;
 }
 //RAZMER IGROVOI OBLASTI
@@ -256,9 +256,18 @@ h2{
 
 .choice_grid{
 width: 100%;
+height: 70%;
 display: flex;
 flex-direction: column;
 align-items: center;
+}
+
+.ship_wrapper_map{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+  height:100%;
 }
 
 .butleImgRed{
@@ -287,14 +296,12 @@ align-items: center;
   width:192px;
   height:48px;
   object-fit: cover;
-  &:active{
-    transform: rotate (90deg);
-  }
 }
 
 .ship_wrapper_one{
   display: flex;
   width:100%;
+  height:10%;
   justify-content: space-evenly;
   margin-bottom:2rem;
 }
@@ -302,7 +309,7 @@ align-items: center;
 .one_ship{
   display: grid;
   &:hover{
-    border: 1px solid red;
+    transform: scale(120%);
   }  
 }
 #one_ship_1{
@@ -312,52 +319,59 @@ align-items: center;
 
 .ship_wrapper_two{
   display: flex;
-  width:100%;
+  align-items: center;
+  width:80%;
+  height:150px;
   justify-content: space-evenly;
-  margin-bottom:2rem;
+  margin-bottom:1rem;
+  margin-top: 1rem;
 }
 
 
 .two_ship{
   display: grid;
+  height:50px;
   grid-template-columns: repeat(2, 50px);
-
   &:hover{
-    border: 1px solid red;
-  }
-}
+    transform: scale(120%);
+}}
 
 .ship_wrapper_three{
   display: flex;
+  align-items: center;
   width:100%;
+  height: 160px;
   justify-content: space-evenly;
-  margin-bottom:2rem;
-}
+  margin-bottom:1rem;
+  margin-top: 1rem;}
 
 
 .three_ship{
   display: grid;
   grid-template-columns: repeat(3, 50px);
-
+  height: 50px;
   &:hover{
-    border: 1px solid red;
+    transform: scale(120%);
   }
 }
 
 .ship_wrapper_fore{
   display: flex;
+  align-items: center;
   width:100%;
+  height: 220px;
   justify-content: space-evenly;
-  margin-bottom:2rem;
+  margin-bottom:1rem;
 }
 
 
 .fore_ship{
   display: grid;
+  height:50px;
   grid-template-columns: repeat(4, 50px);
 
   &:hover{
-    border: 1px solid red;
+    transform: scale(120%);
   }
 }
 
@@ -366,7 +380,7 @@ align-items: center;
 
 .button_wrapper{
   display: flex;
-  flex-direction: column;
+  flex-direction: row;
 }
 
 //GAME OVER!

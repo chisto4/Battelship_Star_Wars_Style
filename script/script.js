@@ -213,8 +213,6 @@ ArrayGridDj.forEach((node, index) => {
 })
 }
 
-
-
 //FILTER CLEAR GRID
 let mapArrClearR2 = [];
 ArrayGridr2d2.forEach((node, index) => {
@@ -1697,15 +1695,34 @@ function MapBoardForOneBoardDj(boardd)
                       allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
                       allShipWrapper[index - 9].classList.contains('ship_wrapper_oneShip') ||
                       allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
-                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
-                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip')
+                      allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip') ||
+                      allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip')
                     ){
                       allShipWrapper[index].className = 'ship_wrapper';
                       alert("Выберите другую клетку!");
                     } else {
                       allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
                     }
-                 } else if(index === 0){
+                 } else if(
+                  index === 19 || index === 29 || index === 39
+                  || index === 49 || index === 59 || index === 69 || index === 79
+                  || index === 89
+                ) {
+                  if(
+                     allShipWrapper[index - 10].classList.contains('ship_wrapper_oneShip') ||
+                     allShipWrapper[index - 11].classList.contains('ship_wrapper_oneShip') ||
+                     allShipWrapper[index - 1].classList.contains('ship_wrapper_oneShip') ||
+                     allShipWrapper[index + 9].classList.contains('ship_wrapper_oneShip') ||
+                     allShipWrapper[index + 10].classList.contains('ship_wrapper_oneShip')
+                   ){
+                     allShipWrapper[index].className = 'ship_wrapper';
+                     alert("Выберите другую клетку!");
+                   } else {
+                     allShipWrapper[index].className = 'ship_wrapper_oneShip oneBoardDj';
+                   }
+                }
+                 
+                 else if(index === 0){
                    if(
                     allShipWrapper[index + 1].classList.contains('ship_wrapper_oneShip') ||
                     allShipWrapper[index + 11].classList.contains('ship_wrapper_oneShip') ||
@@ -3089,7 +3106,6 @@ function shutter ({target:gridElement}){
   
   mapOneBoardSHoutR2();
   notWarPoint(mapShouterOneBoardR2);
-  // mapTwoBoardSHoutR2();
   mapShoutTwoBoardn1('tbn1', 'twoBoardR2');
   mapShoutTwoBoardn1('tbn2', 'twoBoardR2');
   mapShoutTwoBoardn1('tbn3', 'twoBoardR2');
@@ -3097,11 +3113,8 @@ function shutter ({target:gridElement}){
   mapShoutTwoBoardn1('thbn2', 'threeBoardR2');
   mapShoutTwoBoardn1('fb', 'foreBoardR2');
   notWarPoint(mapShouterTwoBoardR2);
-  // mapThreeBoardSHoutR2();
   notWarPoint(mapShouterThreeBoardR2);
-  // mapForeBoardSHoutR2();
   notWarPoint(mapShouterForeBoardR2); 
-
   mapOneBoardSHoutDj();
   notWarPointDj(mapShouterOneBoardDj);
   mapTwoBoardSHoutDj();
@@ -3115,6 +3128,5 @@ function shutter ({target:gridElement}){
 
 allShipWrapperr2d2.forEach((el)=> {
   el.addEventListener('click', shutter)
-  // console.log(el);
 })
 

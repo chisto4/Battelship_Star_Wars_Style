@@ -21,11 +21,11 @@ button {
   border: #6cfaff;
   background: rgba(141, 213, 216, 0.473);
   color: rgba(255, 0, 0, 0.658);
-  font-size: 2rem;
-  width: 250px;
-  padding: 1rem 1.5rem;
+  font-size: 1rem;
+  width: auto;
+  padding: 0.8rem 1.4rem;
   border-radius: 3rem;
-  margin: 1rem;
+  margin: 0.4rem;
   -webkit-transition: 0.8s;
   transition: 0.8s;
 }
@@ -75,8 +75,8 @@ header {
   -webkit-box-pack: center;
       -ms-flex-pack: center;
           justify-content: center;
-  padding-top: 1rem;
-  font-size: 2rem;
+  padding-top: 0.5rem;
+  font-size: 1.5rem;
   font-weight: 300;
 }
 
@@ -324,6 +324,7 @@ header {
 
 .choice_grid {
   width: 100%;
+  height: 70%;
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
@@ -334,6 +335,21 @@ header {
   -webkit-box-align: center;
       -ms-flex-align: center;
           align-items: center;
+}
+
+.ship_wrapper_map {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  height: 100%;
 }
 
 .butleImgRed {
@@ -368,16 +384,12 @@ header {
      object-fit: cover;
 }
 
-.buttle_img_fore:active {
-  -webkit-transform: rotate 90deg;
-          transform: rotate 90deg;
-}
-
 .ship_wrapper_one {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
   width: 100%;
+  height: 10%;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
@@ -390,7 +402,8 @@ header {
 }
 
 .one_ship:hover {
-  border: 1px solid red;
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
 }
 
 #one_ship_1 {
@@ -402,33 +415,45 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  width: 100%;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 80%;
+  height: 150px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .two_ship {
   display: -ms-grid;
   display: grid;
+  height: 50px;
   -ms-grid-columns: (50px)[2];
       grid-template-columns: repeat(2, 50px);
 }
 
 .two_ship:hover {
-  border: 1px solid red;
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
 }
 
 .ship_wrapper_three {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
+  height: 160px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .three_ship {
@@ -436,42 +461,50 @@ header {
   display: grid;
   -ms-grid-columns: (50px)[3];
       grid-template-columns: repeat(3, 50px);
+  height: 50px;
 }
 
 .three_ship:hover {
-  border: 1px solid red;
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
 }
 
 .ship_wrapper_fore {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
+  height: 220px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
 }
 
 .fore_ship {
   display: -ms-grid;
   display: grid;
+  height: 50px;
   -ms-grid-columns: (50px)[4];
       grid-template-columns: repeat(4, 50px);
 }
 
 .fore_ship:hover {
-  border: 1px solid red;
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
 }
 
 .button_wrapper {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
-  -webkit-box-orient: vertical;
+  -webkit-box-orient: horizontal;
   -webkit-box-direction: normal;
-      -ms-flex-direction: column;
-          flex-direction: column;
+      -ms-flex-direction: row;
+          flex-direction: row;
 }
 
 .endGame {
