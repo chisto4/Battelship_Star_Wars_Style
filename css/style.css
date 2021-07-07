@@ -281,11 +281,6 @@ header {
   opacity: 0.7;
 }
 
-.element_90deg {
-  -webkit-transform: rotate(90deg);
-          transform: rotate(90deg);
-}
-
 .r2d2_buttle_grid {
   width: 100%;
   display: -webkit-box;
@@ -312,7 +307,7 @@ header {
       -ms-flex-align: center;
           align-items: center;
   width: 50%;
-  height: auto;
+  height: 750px;
 }
 
 .choice_ships_wrapper h2 {
@@ -388,12 +383,16 @@ header {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
   width: 100%;
-  height: 10%;
+  height: 55px;
   -webkit-box-pack: space-evenly;
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
-  margin-bottom: 2rem;
+  margin-bottom: 1rem;
+  margin-top: 1rem;
 }
 
 .one_ship {
@@ -424,7 +423,6 @@ header {
       -ms-flex-pack: space-evenly;
           justify-content: space-evenly;
   margin-bottom: 1rem;
-  margin-top: 1rem;
 }
 
 .two_ship {
@@ -505,6 +503,7 @@ header {
   -webkit-box-direction: normal;
       -ms-flex-direction: row;
           flex-direction: row;
+  margin-top: 0.7rem;
 }
 
 .endGame {
@@ -522,6 +521,8 @@ header {
 
 .test_modul_button {
   display: none;
+  position: fixed;
+  bottom: 1rem;
 }
 
 #play {
@@ -550,9 +551,74 @@ header {
   height: 100px;
 }
 
+.relodPage img:hover {
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
+}
+
+.help {
+  position: fixed;
+  top: 2rem;
+  right: 2rem;
+}
+
+.help img {
+  width: 100px;
+  height: 100px;
+}
+
+.help img:hover {
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
+}
+
 .vision {
   display: -webkit-box;
   display: -ms-flexbox;
   display: flex;
+}
+
+.element_90deg {
+  -webkit-transform: rotate(90deg);
+          transform: rotate(90deg);
+}
+
+.element_90deg:hover {
+  -webkit-transform: rotate(90deg) scale(105%);
+          transform: rotate(90deg) scale(105%);
+}
+
+.faq {
+  display: block;
+  width: 1000px;
+  height: 600px;
+  position: fixed;
+  top: 10rem;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, rgba(10, 42, 70, 0.719)), color-stop(80%, rgba(44, 123, 187, 0.493)));
+  background: linear-gradient(to right bottom, rgba(10, 42, 70, 0.719) 50%, rgba(44, 123, 187, 0.493) 80%);
+  -webkit-box-shadow: inset 0 2px 9px rgba(60, 118, 151, 0.527), inset 0 -2px 6px rgba(0, 150, 187, 0.582);
+          box-shadow: inset 0 2px 9px rgba(60, 118, 151, 0.527), inset 0 -2px 6px rgba(0, 150, 187, 0.582);
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.faq p {
+  font-size: 1rem;
+}
+
+.close {
+  position: relative;
+  bottom: -15px;
+  left: 50%;
+}
+
+.close img {
+  width: 50px;
+  height: 50px;
+}
+
+.close img:hover {
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
 }
 /*# sourceMappingURL=style.css.map */

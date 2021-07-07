@@ -10,6 +10,20 @@ const testModul = document.getElementById("settingWrapper");
 const testShoutButton = document.getElementById("test_shout");
 const clearButton = document.getElementById("clear_button");
 
+const faqButton = document.getElementById("helpHref");
+const faqWrapper = document.getElementById("faqWrapper");
+const closeButton = document.getElementById("closeButtonModal");
+
+function helpwrapper() {
+  if (faqWrapper.style.display === "block") {
+    faqWrapper.style.display = "none";
+  }
+  else {
+    faqWrapper.style.display = "block";
+  }
+}
+faqButton.addEventListener("click", _ => helpwrapper());
+closeButton.addEventListener("click", _ => helpwrapper());
 
 function buttonTestonClick() {
   if (dark.style.display === "flex" && choice.style.display === "none") {

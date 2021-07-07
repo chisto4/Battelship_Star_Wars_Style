@@ -225,9 +225,7 @@ h2{
   opacity: 0.7;
 }
 
-.element_90deg {
-  transform:rotate(90deg);
-}
+
 
 //R2D2 SETKA display none
 .r2d2_buttle_grid {
@@ -244,7 +242,7 @@ h2{
   flex-direction: column;
   align-items: center;
   width: 50%;
-  height:auto;
+  height:750px;
 
   h2{
     font-size:1.8rem;
@@ -300,10 +298,12 @@ align-items: center;
 
 .ship_wrapper_one{
   display: flex;
+  align-items: center;
   width:100%;
-  height:10%;
+  height:55px;
   justify-content: space-evenly;
-  margin-bottom:2rem;
+  margin-bottom:1rem;
+  margin-top: 1rem;
 }
 
 .one_ship{
@@ -324,7 +324,6 @@ align-items: center;
   height:150px;
   justify-content: space-evenly;
   margin-bottom:1rem;
-  margin-top: 1rem;
 }
 
 
@@ -381,6 +380,7 @@ align-items: center;
 .button_wrapper{
   display: flex;
   flex-direction: row;
+  margin-top: 0.7rem;
 }
 
 //GAME OVER!
@@ -395,6 +395,8 @@ height:auto;
 // TEST WRAPPER
 .test_modul_button {
   display: none;
+  position: fixed;
+  bottom: 1rem;
 }
 #play {
   display: block;
@@ -410,6 +412,9 @@ height:auto;
   }
 }
 
+.settingWrapper{
+}
+
 .relodPage {
   position: fixed;
   bottom: 2rem;
@@ -417,9 +422,59 @@ height:auto;
   img {
     width: 100px;
     height: 100px;
+    &:hover {
+      transform:scale(120%);
+    }
   }
-}
+  }
+
+  .help {
+    position: fixed;
+    top: 2rem;
+    right: 2rem;
+    img {
+      width: 100px;
+      height: 100px;
+      &:hover {
+        transform:scale(120%);
+      }
+    }
+    }
 
 .vision {
   display: flex;
+}
+
+.element_90deg {
+  transform:rotate(90deg);
+  &:hover{
+    transform:rotate(90deg) scale(105%);
+}
+}
+
+.faq{
+  display: block;
+  width: 1000px;
+  height: 600px;
+  position:fixed;
+  top: 10rem;
+  background: linear-gradient(to right bottom, rgba(10, 42, 70, 0.719) 50%, rgba(44, 123, 187, 0.493) 80%);
+  box-shadow: inset 0 2px 9px rgba(60, 118, 151, 0.527), inset 0 -2px 6px rgba(0, 150, 187, 0.582);
+  padding: 1rem;
+  border-radius: 2rem;
+  p{
+    font-size:1rem;
+  }
+}
+.close {
+  position: relative;
+  bottom: -15px;
+  left: 50%;
+  img {
+    width: 50px;
+    height: 50px;
+    &:hover {
+      transform:scale(120%);
+    }
+  }
 }
