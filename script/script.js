@@ -186,7 +186,6 @@ function youWin(){
 ArrayGridr2d2.forEach((node, index) => {
   if(node.classList.contains('dj_One_shot')) {
     mapArrShotOnGridR2.push(index);
-    console.log(mapArrShotOnGridR2);
     if(mapArrShotOnGridR2.length === 20){
       alert('YOU WINNER!!!');
       dark.style.display = "none";
@@ -204,7 +203,6 @@ function youLose(){
 ArrayGridDj.forEach((node, index) => {
   if(node.classList.contains('r2_One_shot')) {
     mapArrShotOnGridDjForLose.push(index);
-    console.log(mapArrShotOnGridDjForLose);
     if(mapArrShotOnGridDjForLose.length === 20){
       alert('YOU LOSEEEER!!!');
       dark.style.display = "none";
@@ -342,11 +340,6 @@ function twoShipOnGrid () {
     }
 }
 
-
-
-
-
-
 // window.asd = allShipWrapper
 let newAllShipWrapper;
 
@@ -355,7 +348,7 @@ let newAllShipWrapper;
 // })
 // console.log('Red border ship number',newAllShipWrapper);
 
-  function newShip({target:gridElement}) {
+function newShip({target:gridElement}) {
   if(allOneShipArr[0].style.border === "2px solid red" ||
       allOneShipArr[1].style.border === "2px solid red" ||
       allOneShipArr[2].style.border === "2px solid red" ||
@@ -466,15 +459,36 @@ let newAllShipWrapper;
 
 allShipWrapper.forEach((el, index)=> {
   el.addEventListener('click', newShip);
-  // console.log(el);
 })
-// mapArrClearForShout = [];
-// ArrayGridDj.forEach((node, index) => {
-// if(!node.classList.contains('zero') && !node.classList.contains('notWar') && !node.classList.contains('r2_One_shot')) {
-//       mapArrClearForShout.push(index);
-// }
+// FUNCTION ONLY ONE RED BOARD
+const allImageOnArmada = document.querySelectorAll('.shipImg');
+const ArrayAllImageOnArmada = Array.from(allImageOnArmada);
 
+function redBoardNew () {
+  const alltestred = document.querySelectorAll('.testRed');
+const arrayTestRed = Array.from(alltestred);
+if(arrayTestRed.length === 2){
+      allOneShipArr[0].style.border = "none";
+      allOneShipArr[1].style.border = "none";
+        allOneShipArr[2].style.border = "none";
+        allOneShipArr[3].style.border = "none";
+        allTwoShipArr[0].style.border = "none";
+        allTwoShipArr[1].style.border = "none";
+        allTwoShipArr[2].style.border = "none";
+        allThreeShipArr[0].style.border = "none";
+        allThreeShipArr[1].style.border = "none";
+        foreShipArr[0].style.border = "none";
+        arrayTestRed[0].classList.remove("testRed");
+        arrayTestRed[1].classList.remove("testRed");
+    }
+}
+function testRed({target:shipImageElement}){
+  shipImageElement.classList.add("testRed");
+  redBoardNew();
+}
 
+ArrayAllImageOnArmada.forEach((el, index)=> {
+  el.addEventListener('click', testRed);})
 
 //BLOCK ABOUT START PLAY GAME
 
@@ -585,27 +599,27 @@ function rnd1R2() {
   allShipWrapperr2d2[69].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
   allShipWrapperr2d2[96].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
   //TWO BOARD
-  allShipWrapperr2d2[18].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
-  allShipWrapperr2d2[19].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+  allShipWrapperr2d2[18].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn1");
+  allShipWrapperr2d2[19].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn1");
 
-  allShipWrapperr2d2[37].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
-  allShipWrapperr2d2[47].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+  allShipWrapperr2d2[37].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn2");
+  allShipWrapperr2d2[47].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2" , "tbn2");
 
-  allShipWrapperr2d2[66].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
-  allShipWrapperr2d2[67].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+  allShipWrapperr2d2[66].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn3");
+  allShipWrapperr2d2[67].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn3");
   //THREE BOARD
-  allShipWrapperr2d2[31].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[41].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[51].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
+  allShipWrapperr2d2[31].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn1");
+  allShipWrapperr2d2[41].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn1");
+  allShipWrapperr2d2[51].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn1");
 
-  allShipWrapperr2d2[92].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[93].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[94].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
+  allShipWrapperr2d2[92].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn2");
+  allShipWrapperr2d2[93].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn2");
+  allShipWrapperr2d2[94].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn2");
   //FOUR BOARD
-  allShipWrapperr2d2[24].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
-  allShipWrapperr2d2[34].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
-  allShipWrapperr2d2[44].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
-  allShipWrapperr2d2[54].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
+  allShipWrapperr2d2[24].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
+  allShipWrapperr2d2[34].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
+  allShipWrapperr2d2[44].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
+  allShipWrapperr2d2[54].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
 
 }
 
@@ -616,28 +630,28 @@ function rnd2R2() {
   allShipWrapperr2d2[25].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
   allShipWrapperr2d2[44].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
   //TWO BOARD
-  allShipWrapperr2d2[42].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
-  allShipWrapperr2d2[52].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+  allShipWrapperr2d2[42].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn1");
+  allShipWrapperr2d2[52].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn1");
 
-  allShipWrapperr2d2[85].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
-  allShipWrapperr2d2[86].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+  allShipWrapperr2d2[85].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn2");
+  allShipWrapperr2d2[86].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn2");
 
-  allShipWrapperr2d2[91].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
-  allShipWrapperr2d2[92].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+  allShipWrapperr2d2[91].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn3");
+  allShipWrapperr2d2[92].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn3");
 
   //THREE BOARD
-  allShipWrapperr2d2[28].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[38].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[48].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
+  allShipWrapperr2d2[28].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn1");
+  allShipWrapperr2d2[38].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn1");
+  allShipWrapperr2d2[48].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn1");
 
-  allShipWrapperr2d2[79].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[89].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[99].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
+  allShipWrapperr2d2[79].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn2");
+  allShipWrapperr2d2[89].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn2");
+  allShipWrapperr2d2[99].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn2");
   //FOUR BOARD
-  allShipWrapperr2d2[40].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
-  allShipWrapperr2d2[50].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
-  allShipWrapperr2d2[60].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
-  allShipWrapperr2d2[70].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
+  allShipWrapperr2d2[40].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
+  allShipWrapperr2d2[50].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
+  allShipWrapperr2d2[60].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
+  allShipWrapperr2d2[70].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
 }
 
 function rnd3R2() {
@@ -647,28 +661,28 @@ function rnd3R2() {
   allShipWrapperr2d2[1].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
   allShipWrapperr2d2[99].classList.add("ship_wrapper_oneShip_r2d2", "oneBoardR2");
   //TWO BOARD
-  allShipWrapperr2d2[20].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
-  allShipWrapperr2d2[21].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+  allShipWrapperr2d2[20].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn1");
+  allShipWrapperr2d2[21].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn1");
 
-  allShipWrapperr2d2[60].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
-  allShipWrapperr2d2[61].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+  allShipWrapperr2d2[60].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn2");
+  allShipWrapperr2d2[61].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn2");
 
-  allShipWrapperr2d2[35].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
-  allShipWrapperr2d2[36].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2");
+  allShipWrapperr2d2[35].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn3");
+  allShipWrapperr2d2[36].classList.add("ship_wrapper_oneShip_r2d2",  "twoBoardR2", "tbn3");
 
   //THREE BOARD
-  allShipWrapperr2d2[4].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[5].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[6].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
+  allShipWrapperr2d2[4].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn1");
+  allShipWrapperr2d2[5].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn1");
+  allShipWrapperr2d2[6].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn1");
 
-  allShipWrapperr2d2[81].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[82].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
-  allShipWrapperr2d2[83].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2");
+  allShipWrapperr2d2[81].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn2");
+  allShipWrapperr2d2[82].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn2");
+  allShipWrapperr2d2[83].classList.add("ship_wrapper_oneShip_r2d2",  "threeBoardR2", "thbn2");
   //FOUR BOARD
-  allShipWrapperr2d2[57].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
-  allShipWrapperr2d2[67].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
-  allShipWrapperr2d2[77].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
-  allShipWrapperr2d2[87].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2");
+  allShipWrapperr2d2[57].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
+  allShipWrapperr2d2[67].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
+  allShipWrapperr2d2[77].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
+  allShipWrapperr2d2[87].classList.add("ship_wrapper_oneShip_r2d2",  "foreBoardR2", "fb");
 }
 
 
@@ -802,14 +816,59 @@ ArrayGridr2d2.forEach((node, index) => {
 })
 }
 
+//FOR RIHT VISION WHEN SHOUT ONLY HALF BOARD
+let mapShouterTwoBoardR2n1 = [];
+function mapShoutTwoBoardn1(boardMrker, boardClass){
+
+  mapShouterTwoBoardR2n1 = [];
+
+  ArrayGridr2d2.forEach((node, index) => 
+     {
+      if(node.classList.contains('dj_One_shot')
+          && node.classList.contains('ship_wrapper_oneShip_r2d2')
+          && node.classList.contains(boardMrker)
+          && node.classList.contains(boardClass)
+        ) {
+            mapShouterTwoBoardR2n1.push(index);
+          }
+    })
+    if(
+      boardMrker == 'tbn1' && mapShouterTwoBoardR2n1.length === 2
+    ) {
+        mapTwoBoardSHoutR2('tbn1');
+      }
+    else if(boardMrker == 'tbn2' && mapShouterTwoBoardR2n1.length === 2
+      ) {
+          mapTwoBoardSHoutR2('tbn2');
+        }
+    else if(boardMrker == 'tbn3' && mapShouterTwoBoardR2n1.length === 2
+      ) {
+          mapTwoBoardSHoutR2('tbn3');
+        }
+     else if(boardMrker == 'thbn1' && mapShouterTwoBoardR2n1.length === 3
+      ) {
+          mapThreeBoardSHoutR2('thbn1');
+        }
+    else if(boardMrker == 'thbn2' && mapShouterTwoBoardR2n1.length === 3
+      ) {
+          mapThreeBoardSHoutR2('thbn2');
+        } 
+        else if(boardMrker == 'fb' && mapShouterTwoBoardR2n1.length === 4
+      ) {
+        mapForeBoardSHoutR2('fb');
+        } 
+        console.log('zalupa tut', mapShouterTwoBoardR2n1);
+  }
+
 
 //two ship notWar
 let mapShouterTwoBoardR2 = [];
-function mapTwoBoardSHoutR2(){
+function mapTwoBoardSHoutR2(board){
   mapShouterOneBoardR2 = [];
 ArrayGridr2d2.forEach((node, index) => {
   if(node.classList.contains('dj_One_shot')
     && node.classList.contains('ship_wrapper_oneShip_r2d2')
+    && node.classList.contains(board)
     && node.classList.contains('twoBoardR2')) {
       if((index === 0 && index === 1) || (index === 0 && index === 10)){
         mapShouterTwoBoardR2.push(index + 1);
@@ -928,11 +987,12 @@ ArrayGridr2d2.forEach((node, index) => {
 
 //three ship notWar
 let mapShouterThreeBoardR2 = [];
-function mapThreeBoardSHoutR2(){
+function mapThreeBoardSHoutR2(board){
   mapShouterThreeBoardR2 = [];
 ArrayGridr2d2.forEach((node, index) => {
   if(node.classList.contains('dj_One_shot')
     && node.classList.contains('ship_wrapper_oneShip_r2d2')
+    && node.classList.contains(board)
     && node.classList.contains('threeBoardR2')) {
       if((index === 0 && index === 1) || (index === 0 && index === 10)){
         mapShouterThreeBoardR2.push(index + 1);
@@ -1050,11 +1110,12 @@ ArrayGridr2d2.forEach((node, index) => {
 
 //foure ship notWar
 let mapShouterForeBoardR2 = [];
-function mapForeBoardSHoutR2(){
+function mapForeBoardSHoutR2(board){
   mapShouterForeBoardR2 = [];
 ArrayGridr2d2.forEach((node, index) => {
   if(node.classList.contains('dj_One_shot')
     && node.classList.contains('ship_wrapper_oneShip_r2d2')
+    && node.classList.contains(board)
     && node.classList.contains('foreBoardR2')) {
       if((index === 0 && index === 1) || (index === 0 && index === 10)){
         mapShouterForeBoardR2.push(index + 1);
@@ -1171,6 +1232,7 @@ ArrayGridr2d2.forEach((node, index) => {
 }
 
 //map shouter oneBoard DJEDAI
+
 
 //one ship notWar
 let mapShouterOneBoardDj = [];
@@ -1611,7 +1673,7 @@ ArrayGridDj.forEach((node, index) => {
   }
 })
 }
-// FUNCTION ADD SHIP ON GRID WHEN START GAME
+// FUNCTION MANUAL ADD SHIP ON GRID WHEN START GAME
 
 //ARRAY FOR ONE SHIP
 const oneBoardShipOne = document.getElementById('one_ship_1');
@@ -2960,122 +3022,6 @@ function MapBoardForForeBoardDj(boardd)
     )}
 
 
-
-//         mapShouterForeBoardDj.push(index + 1);
-//         mapShouterForeBoardDj.push(index + 10);
-//         mapShouterForeBoardDj.push(index + 11);
-//       } else if((index === 9 & index === 8) || (index === 9 && index === 19)){
-//         mapShouterForeBoardDj.push(index - 1);
-//         mapShouterForeBoardDj.push(index + 10);
-//         mapShouterForeBoardDj.push(index + 9);
-//       } else if((index === 90 && index === 91) || (index === 90 && index === 80)){
-//         mapShouterForeBoardDj.push(index + 1);
-//         mapShouterForeBoardDj.push(index - 10);
-//         mapShouterForeBoardDj.push(index - 9);
-//       } else if((index === 98 && index === 99) || (index === 99 && index === 89)){
-//         mapShouterForeBoardDj.push(index - 1);
-//         mapShouterForeBoardDj.push(index - 10);
-//         mapShouterForeBoardDj.push(index - 9);
-//       } else if((index === 1 && index === 2) || (index === 2 && index === 3) 
-//         || (index === 3 && index === 4) || (index === 4 && index === 5) 
-//         || (index === 5 && index === 6) || (index === 6 && index === 7)
-//         || (index === 7 && index === 8 )) {
-//           mapShouterForeBoardDj.push(index - 1);
-//           mapShouterForeBoardDj.push(index + 1);
-//           mapShouterForeBoardDj.push(index + 9);
-//           mapShouterForeBoardDj.push(index + 10);
-//           mapShouterForeBoardDj.push(index + 11);
-//         } else if((index === 10 && index === 20) || (index === 20 && index === 30) 
-//         || (index === 30 && index === 40) || (index === 40 && index === 50) 
-//         || (index === 50 && index === 60) || (index === 60 && index === 70)
-//         || (index === 70 && index === 80 )) {
-//           mapShouterForeBoardDj.push(index - 10);
-//           mapShouterForeBoardDj.push(index + 1);
-//           mapShouterForeBoardDj.push(index - 9);
-//           mapShouterForeBoardDj.push(index + 10);
-//           mapShouterForeBoardDj.push(index + 11);
-//         } else if((index === 91 && index === 92) || (index === 92 && index === 93) 
-//         || (index === 93 && index === 94) || (index === 94 && index === 95) 
-//         || (index === 95 && index === 96) || (index === 96 && index === 97)
-//         || (index === 97 && index === 98 )) {
-//           mapShouterForeBoardDj.push(index - 1);
-//           mapShouterForeBoardDj.push(index - 11);
-//           mapShouterForeBoardDj.push(index - 10);
-//           mapShouterForeBoardDj.push(index - 9);
-//           mapShouterForeBoardDj.push(index + 1);
-//         } else if((index === 19 && index === 29) || (index === 29 && index === 39) 
-//         || (index === 39 && index === 49) || (index === 49 && index === 59) 
-//         || (index === 59 && index === 69) || (index === 69 && index === 79)
-//         || (index === 79 && index === 89 )) {
-//           mapShouterForeBoardDj.push(index - 10);
-//           mapShouterForeBoardDj.push(index - 11);
-//           mapShouterForeBoardDj.push(index - 1);
-//           mapShouterForeBoardDj.push(index + 9);
-//           mapShouterForeBoardDj.push(index + 10);
-//         } else if(index === 1 || index === 2 || index === 3
-//           || index === 4 || index === 5 || index === 6
-//           || index === 7 || index === 8){
-//             mapShouterForeBoardDj.push(index - 1);
-//             mapShouterForeBoardDj.push(index + 1);
-//             mapShouterForeBoardDj.push(index + 9);
-//             mapShouterForeBoardDj.push(index + 10);
-//             mapShouterForeBoardDj.push(index + 11);
-//         } else if(index === 10 || index === 20 || index === 30
-//           || index === 40 || index === 50 || index === 60
-//           || index === 70 || index === 80){
-//             mapShouterForeBoardDj.push(index - 10);
-//             mapShouterForeBoardDj.push(index + 1);
-//             mapShouterForeBoardDj.push(index - 9);
-//             mapShouterForeBoardDj.push(index + 10);
-//             mapShouterForeBoardDj.push(index + 11);
-//         } else if(index === 91 || index === 92 || index === 93
-//           || index === 94 || index === 95 || index === 96
-//           || index === 97 || index === 98){
-//             mapShouterForeBoardDj.push(index - 1);
-//             mapShouterForeBoardDj.push(index - 11);
-//             mapShouterForeBoardDj.push(index - 10);
-//             mapShouterForeBoardDj.push(index - 9);
-//             mapShouterForeBoardDj.push(index + 1);
-//         } else if(index === 19 || index === 29 || index === 39
-//           || index === 49 || index === 59 || index === 69
-//           || index === 79 || index === 89){
-//             mapShouterForeBoardDj.push(index - 10);
-//             mapShouterForeBoardDj.push(index - 11);
-//             mapShouterForeBoardDj.push(index - 1);
-//             mapShouterForeBoardDj.push(index + 9);
-//             mapShouterForeBoardDj.push(index + 10);
-//           } else if(index === 0){
-//             mapShouterForeBoardDj.push(index + 1);
-//             mapShouterForeBoardDj.push(index + 10);
-//             mapShouterForeBoardDj.push(index + 11);
-//           } else if(index === 9){
-//             mapShouterForeBoardDj.push(index - 1);
-//             mapShouterForeBoardDj.push(index + 10);
-//             mapShouterForeBoardDj.push(index + 9);
-//           } else if(index === 90){
-//             mapShouterForeBoardDj.push(index + 1);
-//             mapShouterForeBoardDj.push(index - 10);
-//             mapShouterForeBoardDj.push(index - 9);
-//           } else if(index === 99){
-//             mapShouterForeBoardDj.push(index - 1);
-//             mapShouterForeBoardDj.push(index - 10);
-//             mapShouterForeBoardDj.push(index - 11);
-//           } else {
-//             mapShouterForeBoardDj.push(index - 1);
-//             mapShouterForeBoardDj.push(index + 1);
-//             mapShouterForeBoardDj.push(index + 10);
-//             mapShouterForeBoardDj.push(index - 10);
-//             mapShouterForeBoardDj.push(index - 9);
-//             mapShouterForeBoardDj.push(index + 9);
-//             mapShouterForeBoardDj.push(index + 11);
-//             mapShouterForeBoardDj.push(index - 11);
-//   }
-//   }
-// })
-// }
-
-
-
 //Function for notWar or zero condition
 //include all map for iteration for R2D2
 function notWarPoint(map) {
@@ -3128,7 +3074,12 @@ function shutter ({target:gridElement}){
     if(gridElement.classList.contains('ship_wrapper_oneShip_r2d2') 
       ){
         gridElement.classList.add("dj_One_shot");
-    } else if(!gridElement.classList.contains('ship_wrapper_oneShip_r2d2'))
+    } else if(gridElement.classList.contains('notWar')) {
+      
+    }else if(gridElement.classList.contains('zero')) {
+      
+    }
+    else if(!gridElement.classList.contains('ship_wrapper_oneShip_r2d2'))
     {
       gridElement.classList.add("zero");
       youLose();
@@ -3138,11 +3089,17 @@ function shutter ({target:gridElement}){
   
   mapOneBoardSHoutR2();
   notWarPoint(mapShouterOneBoardR2);
-  mapTwoBoardSHoutR2();
+  // mapTwoBoardSHoutR2();
+  mapShoutTwoBoardn1('tbn1', 'twoBoardR2');
+  mapShoutTwoBoardn1('tbn2', 'twoBoardR2');
+  mapShoutTwoBoardn1('tbn3', 'twoBoardR2');
+  mapShoutTwoBoardn1('thbn1', 'threeBoardR2');
+  mapShoutTwoBoardn1('thbn2', 'threeBoardR2');
+  mapShoutTwoBoardn1('fb', 'foreBoardR2');
   notWarPoint(mapShouterTwoBoardR2);
-  mapThreeBoardSHoutR2();
+  // mapThreeBoardSHoutR2();
   notWarPoint(mapShouterThreeBoardR2);
-  mapForeBoardSHoutR2();
+  // mapForeBoardSHoutR2();
   notWarPoint(mapShouterForeBoardR2); 
 
   mapOneBoardSHoutDj();
