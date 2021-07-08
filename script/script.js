@@ -13,7 +13,14 @@ const clearButton = document.getElementById("clear_button");
 const faqButton = document.getElementById("helpHref");
 const faqWrapper = document.getElementById("faqWrapper");
 const closeButton = document.getElementById("closeButtonModal");
+//LOSE WIN
+const loseWrapper = document.getElementById("loseWrapper");
+const closeButtonLose = document.getElementById("closeButtonLose");
 
+const winnerWrapper = document.getElementById("winnerWrapper");
+const closeButtonWinner = document.getElementById("closeButtonWinner");
+
+//HELP FUNCTION
 function helpwrapper() {
   if (faqWrapper.style.display === "block") {
     faqWrapper.style.display = "none";
@@ -24,6 +31,28 @@ function helpwrapper() {
 }
 faqButton.addEventListener("click", _ => helpwrapper());
 closeButton.addEventListener("click", _ => helpwrapper());
+
+//LOSE FUNCTION
+function losewrapper() {
+  if (loseWrapper.style.display === "block") {
+    loseWrapper.style.display = "none";
+  }
+  else {
+    loseWrapper.style.display = "block";
+  }
+}
+closeButtonLose.addEventListener("click", _ => losewrapper());
+//LOSE FUNCTION
+function winerwrapper() {
+  if (winnerWrapper.style.display === "block") {
+    winnerWrapper.style.display = "none";
+  }
+  else {
+    winnerWrapper.style.display = "block";
+  }
+}
+closeButtonWinner.addEventListener("click", _ => winerwrapper());
+
 
 function buttonTestonClick() {
   if (dark.style.display === "flex" && choice.style.display === "none") {
@@ -201,7 +230,7 @@ ArrayGridr2d2.forEach((node, index) => {
   if(node.classList.contains('dj_One_shot')) {
     mapArrShotOnGridR2.push(index);
     if(mapArrShotOnGridR2.length === 20){
-      alert('YOU WINNER!!!');
+      winnerwrapper();
       dark.style.display = "none";
       endGameElement.style.display = "flex";
 
@@ -210,7 +239,7 @@ ArrayGridr2d2.forEach((node, index) => {
 })
 }
 
-//Function YOU WIN!
+//Function YOU LOSER!
 let mapArrShotOnGridDjForLose = [];
 function youLose(){
   mapArrShotOnGridDjForLose = [];
@@ -218,10 +247,9 @@ ArrayGridDj.forEach((node, index) => {
   if(node.classList.contains('r2_One_shot')) {
     mapArrShotOnGridDjForLose.push(index);
     if(mapArrShotOnGridDjForLose.length === 20){
-      alert('YOU LOSEEEER!!!');
+      losewrapper();
       dark.style.display = "none";
       endGameElement.style.display = "flex";
-
     }
   }
 })

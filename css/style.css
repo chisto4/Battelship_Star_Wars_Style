@@ -19,10 +19,14 @@ body {
 
 button {
   border: #6cfaff;
-  background: rgba(141, 213, 216, 0.473);
-  color: rgba(255, 0, 0, 0.658);
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(30%, rgba(10, 42, 70, 0.719)), color-stop(80%, rgba(44, 123, 187, 0.493)));
+  background: linear-gradient(to right bottom, rgba(10, 42, 70, 0.719) 30%, rgba(44, 123, 187, 0.493) 80%);
+  -webkit-box-shadow: inset 0 2px 9px rgba(60, 118, 151, 0.527), inset 0 -2px 6px rgba(0, 150, 187, 0.582);
+          box-shadow: inset 0 2px 9px rgba(60, 118, 151, 0.527), inset 0 -2px 6px rgba(0, 150, 187, 0.582);
+  color: rgba(245, 207, 207, 0.918);
   font-size: 1rem;
   width: auto;
+  min-width: 150px;
   padding: 0.8rem 1.4rem;
   border-radius: 3rem;
   margin: 0.4rem;
@@ -32,15 +36,15 @@ button {
 
 button:hover {
   background: rgba(141, 213, 216, 0.952);
-  color: rgba(255, 0, 0, 0.973);
+  color: rgba(236, 148, 33, 0.925);
   -webkit-transition: 0.8s;
   transition: 0.8s;
 }
 
 button:active {
   background: rgba(232, 249, 250, 0.952);
-  -webkit-box-shadow: 5px 5px 20px rgba(56, 74, 180, 0.815);
-          box-shadow: 5px 5px 20px rgba(56, 74, 180, 0.815);
+  -webkit-box-shadow: 5px 5px 20px rgba(76, 90, 172, 0.658);
+          box-shadow: 5px 5px 20px rgba(76, 90, 172, 0.658);
   -webkit-transition: 0.2s;
   transition: 0.2s;
 }
@@ -103,6 +107,13 @@ header {
   position: relative;
 }
 
+.yoda:hover {
+  -webkit-transition: 3s;
+  transition: 3s;
+  -webkit-transform: rotate(720deg) scale(140%);
+          transform: rotate(720deg) scale(140%);
+}
+
 .djedai_buttle_wrapper {
   width: 50%;
   height: auto;
@@ -133,6 +144,13 @@ header {
   background-repeat: no-repeat;
   background-size: contain;
   position: relative;
+}
+
+.sith:hover {
+  -webkit-transition: 3s;
+  transition: 3s;
+  -webkit-transform: rotate(-720deg) scale(140%);
+          transform: rotate(-720deg) scale(140%);
 }
 
 .r2d2_buttle_wrapper {
@@ -540,6 +558,11 @@ header {
   height: 20px;
 }
 
+.setting img:hover {
+  -webkit-transform: rotate(20deg) scale(125%);
+          transform: rotate(20deg) scale(125%);
+}
+
 .relodPage {
   position: fixed;
   bottom: 2rem;
@@ -552,8 +575,40 @@ header {
 }
 
 .relodPage img:hover {
-  -webkit-transform: scale(120%);
-          transform: scale(120%);
+  -webkit-transform: rotate(360deg) scale(120%);
+          transform: rotate(360deg) scale(120%);
+}
+
+.instagram {
+  position: fixed;
+  top: 50%;
+  right: 1rem;
+}
+
+.instagram img {
+  width: 40px;
+  height: 40px;
+}
+
+.instagram img:hover {
+  -webkit-transform: rotate(360deg) scale(120%);
+          transform: rotate(360deg) scale(120%);
+}
+
+.github {
+  position: fixed;
+  top: 56%;
+  right: 0.9rem;
+}
+
+.github img {
+  width: 40px;
+  height: 40px;
+}
+
+.github img:hover {
+  -webkit-transform: rotate(360deg) scale(120%);
+          transform: rotate(360deg) scale(120%);
 }
 
 .help {
@@ -589,7 +644,7 @@ header {
 }
 
 .faq {
-  display: block;
+  display: none;
   width: 1000px;
   height: 600px;
   position: fixed;
@@ -620,5 +675,114 @@ header {
 .close img:hover {
   -webkit-transform: scale(120%);
           transform: scale(120%);
+}
+
+.los {
+  display: none;
+  width: 1000px;
+  height: 400px;
+  position: fixed;
+  top: 10rem;
+  background: -webkit-gradient(linear, left top, right bottom, color-stop(50%, rgba(10, 42, 70, 0.719)), color-stop(80%, rgba(44, 123, 187, 0.493)));
+  background: linear-gradient(to right bottom, rgba(10, 42, 70, 0.719) 50%, rgba(44, 123, 187, 0.493) 80%);
+  -webkit-box-shadow: inset 0 2px 9px rgba(60, 118, 151, 0.527), inset 0 -2px 6px rgba(0, 150, 187, 0.582);
+          box-shadow: inset 0 2px 9px rgba(60, 118, 151, 0.527), inset 0 -2px 6px rgba(0, 150, 187, 0.582);
+  padding: 1rem;
+  border-radius: 2rem;
+}
+
+.los p {
+  text-align: center;
+  font-size: 4rem;
+}
+
+.avatarLoseWin {
+  padding-left: 400px;
+  width: 200px;
+  height: 200px;
+}
+
+.avatarLoseWin:hover {
+  -webkit-transform: scale(120%);
+          transform: scale(120%);
+}
+
+h1 {
+  font-family: "Avant Garde", Avantgarde, "Century Gothic", CenturyGothic, "AppleGothic", sans-serif;
+  font-size: 42px;
+  padding: 20px 20px;
+  text-align: center;
+  text-transform: uppercase;
+  text-rendering: optimizeLegibility;
+}
+
+h1.deepshadow {
+  color: #e0dfdc;
+  letter-spacing: .1em;
+  text-shadow: 0 -1px 0 #fff, 0 1px 0 #2e2e2e, 0 2px 0 #2c2c2c, 0 3px 0 #2a2a2a, 0 4px 0 #282828, 0 5px 0 #262626, 0 6px 0 #242424, 0 7px 0 #222, 0 8px 0 #202020, 0 9px 0 #1e1e1e, 0 10px 0 #1c1c1c, 0 11px 0 #1a1a1a, 0 12px 0 #181818, 0 13px 0 #161616, 0 14px 0 #141414, 0 15px 0 #121212, 0 22px 30px rgba(0, 0, 0, 0.9);
+}
+
+h1.elegantshadow {
+  color: #131313;
+  letter-spacing: .15em;
+  text-shadow: 1px -1px 0 #767676,  -1px 2px 1px #737272,  -2px 4px 1px #767474,  -3px 6px 1px #787777,  -4px 8px 1px #7b7a7a,  -5px 10px 1px #7f7d7d,  -6px 12px 1px #828181,  -7px 14px 1px #868585,  -8px 16px 1px #8b8a89,  -9px 18px 1px #8f8e8d,  -10px 20px 1px #949392,  -11px 22px 1px #999897,  -12px 24px 1px #9e9c9c,  -13px 26px 1px #a3a1a1,  -14px 28px 1px #a8a6a6,  -15px 30px 1px #adabab,  -16px 32px 1px #b2b1b0,  -17px 34px 1px #b7b6b5,  -18px 36px 1px #bcbbba,  -19px 38px 1px #c1bfbf,  -20px 40px 1px #c6c4c4,  -21px 42px 1px #cbc9c8,  -22px 44px 1px #cfcdcd,  -23px 46px 1px #d4d2d1,  -24px 48px 1px #d8d6d5,  -25px 50px 1px #dbdad9,  -26px 52px 1px #dfdddc,  -27px 54px 1px #e2e0df,  -28px 56px 1px #e4e3e2;
+}
+
+.text--line {
+  font-size: 26px;
+}
+
+svg {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+}
+
+.text-copy {
+  fill: none;
+  stroke: white;
+  stroke-dasharray: 7% 28%;
+  stroke-width: 1px;
+  -webkit-animation: stroke-offset 9s infinite linear;
+          animation: stroke-offset 9s infinite linear;
+}
+
+.text-copy:nth-child(1) {
+  stroke: #360745;
+  stroke-dashoffset: 7%;
+}
+
+.text-copy:nth-child(2) {
+  stroke: #D61C59;
+  stroke-dashoffset: 14%;
+}
+
+.text-copy:nth-child(3) {
+  stroke: #E7D84B;
+  stroke-dashoffset: 21%;
+}
+
+.text-copy:nth-child(4) {
+  stroke: #EFEAC5;
+  stroke-dashoffset: 28%;
+}
+
+.text-copy:nth-child(5) {
+  stroke: #1B8798;
+  stroke-dashoffset: 35%;
+}
+
+@-webkit-keyframes stroke-offset {
+  50% {
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%;
+  }
+}
+
+@keyframes stroke-offset {
+  50% {
+    stroke-dashoffset: 35%;
+    stroke-dasharray: 0 87.5%;
+  }
 }
 /*# sourceMappingURL=style.css.map */
