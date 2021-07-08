@@ -230,7 +230,7 @@ ArrayGridr2d2.forEach((node, index) => {
   if(node.classList.contains('dj_One_shot')) {
     mapArrShotOnGridR2.push(index);
     if(mapArrShotOnGridR2.length === 20){
-      winnerwrapper();
+      winerwrapper();
       dark.style.display = "none";
       endGameElement.style.display = "flex";
 
