@@ -1050,16 +1050,7 @@ ArrayGridr2d2.forEach((node, index) => {
         mapShouterThreeBoardR2.push(index - 1);
         mapShouterThreeBoardR2.push(index - 10);
         mapShouterThreeBoardR2.push(index - 9);
-      } else if((index === 1 && index === 2) || (index === 2 && index === 3) 
-        || (index === 3 && index === 4) || (index === 4 && index === 5) 
-        || (index === 5 && index === 6) || (index === 6 && index === 7)
-        || (index === 7 && index === 8 )) {
-          mapShouterThreeBoardR2.push(index - 1);
-          mapShouterThreeBoardR2.push(index + 1);
-          mapShouterThreeBoardR2.push(index + 9);
-          mapShouterThreeBoardR2.push(index + 10);
-          mapShouterThreeBoardR2.push(index + 11);
-        } else if((index === 10 && index === 20) || (index === 20 && index === 30) 
+      } else if((index === 10 && index === 20) || (index === 20 && index === 30) 
         || (index === 30 && index === 40) || (index === 40 && index === 50) 
         || (index === 50 && index === 60) || (index === 60 && index === 70)
         || (index === 70 && index === 80 )) {
